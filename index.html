@@ -65,6 +65,16 @@
   opacity: 1;
 }
 body {
+  <script>
+function toggleMenu() {
+  const menu = document.getElementById("menuLinks");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+</script>
   background:black;
   color:white;
   font-family: Arial, sans-serif;
