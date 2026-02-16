@@ -17,6 +17,34 @@
   align-items: center;
   border-bottom: 1px solid #222;
   z-index: 999;
+  .hamburger {
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display:none;
+    position:absolute;
+    top:60px;
+    right:20px;
+    background:black;
+    padding:15px;
+    border:1px solid #222;
+    border-radius:8px;
+    flex-direction:column;
+  }
+
+  .menu a {
+    display:block;
+    margin:10px 0;
+  }
+
+  .hamburger {
+    display:block;
+  }
+}
 }
 
 .logo {
