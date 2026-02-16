@@ -5,7 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>.navbar {
+<style>
+
+/* NAVBAR */
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -17,12 +20,34 @@
   align-items: center;
   border-bottom: 1px solid #222;
   z-index: 999;
-  .hamburger {
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
+
+/* HAMBURGER */
+.hamburger {
   display:none;
   font-size:24px;
   cursor:pointer;
 }
 
+/* MOBILE MENU */
 @media (max-width: 768px) {
   .menu {
     display:none;
@@ -45,36 +70,9 @@
     display:block;
   }
 }
-}
 
-.logo {
-  font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 18px;
-}
-
-.menu a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: white;
-  opacity: 0.7;
-  font-size: 14px;
-}
-
-.menu a:hover {
-  opacity: 1;
-}
+/* BODY */
 body {
-  <script>
-function toggleMenu() {
-  const menu = document.getElementById("menuLinks");
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
-}
-</script>
   background:black;
   color:white;
   font-family: Arial, sans-serif;
@@ -102,7 +100,7 @@ p {
   margin-right:auto;
 }
 
-/* Background stars */
+/* STARS BACKGROUND */
 .stars {
   position:fixed;
   width:100%;
@@ -116,14 +114,20 @@ p {
   from {background-position:0 0;}
   to {background-position:10000px 5000px;}
 }
+
 </style>
 </head>
 
 <body>
-  <div class="navbar">
+
+<div class="navbar">
   <div class="logo">ZÆTHR</div>
-  <div class="menu">
+
+  <!-- HAMBURGER -->
   <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <!-- MENU -->
+  <div class="menu" id="menuLinks">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="serbia.html">Serbia</a>
@@ -144,6 +148,18 @@ We are building a decentralized global delivery empire.
 A system beyond borders, beyond corporations, beyond governments.  
 Zaethr is not a company. It is an infrastructure for the next civilization.
 </div>
+
+<!-- JAVASCRIPT -->
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menuLinks");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+</script>
 
 </body>
 </html>
