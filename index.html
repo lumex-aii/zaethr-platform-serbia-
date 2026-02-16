@@ -5,7 +5,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
+<style>.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 999;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
 body {
   background:black;
   color:white;
@@ -53,6 +83,7 @@ p {
 
 <body>
   <div class="navbar">
+    <div style="height:80px;"></div>
   <div class="logo">ZÆTHR</div>
   <div class="menu">
     <a href="index.html">Home</a>
