@@ -35,8 +35,10 @@ body {
   letter-spacing: 3px;
   font-size: 18px;
 }
-  
-  .menu {
+
+.menu {
+  display: flex;
+  align-items: center;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -84,6 +86,10 @@ body {
   }
 }
 
+.menu.show {
+  display: flex !important;
+}
+
 /* STARS */
 .stars {
   position:fixed;
@@ -121,7 +127,6 @@ p {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
 
@@ -144,21 +149,18 @@ p {
 <p>Serbia Launch Phase — Founder: Murat EFE</p>
 
 <div class="manifest">
-We are building a decentralized global delivery empire.  
-A system beyond borders, beyond corporations, beyond governments.  
+We are building a decentralized global delivery empire.<br>
+A system beyond borders, beyond corporations, beyond governments.<br>
 Zaethr is not a company. It is an infrastructure for the next civilization.
 </div>
 
-<!-- JAVASCRIPT -->
 <script>
-function toggleMenu() {
-  const menu = document.getElementById("menuLinks");
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
+document.addEventListener("DOMContentLoaded", function() {
+  window.toggleMenu = function() {
+    const menu = document.getElementById("menuLinks");
+    menu.classList.toggle("show");
   }
-}
+});
 </script>
 
 </body>
