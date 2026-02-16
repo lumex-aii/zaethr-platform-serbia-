@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>ZÆTHR Platform</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CACHE FIX -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 
 <style>
 body {
@@ -11,8 +16,9 @@ body {
   color:white;
   font-family: Arial, sans-serif;
   text-align:center;
-  padding-top:120px;
-  overflow-x:hidden;
+  padding-top:20vh;
+  overflow:hidden;
+  margin:0;
 }
 
 /* NAVBAR */
@@ -28,6 +34,9 @@ body {
   align-items: center;
   border-bottom: 1px solid #222;
   z-index: 999;
+  -webkit-display:flex;
+  -webkit-justify-content:space-between;
+  -webkit-align-items:center;
 }
 
 .logo {
@@ -36,11 +45,10 @@ body {
   font-size: 18px;
 }
 
+/* MENU */
 .menu {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  white-space: nowrap;
 }
 
 .menu a {
@@ -49,6 +57,7 @@ body {
   color: white;
   opacity: 0.7;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .menu a:hover {
@@ -70,27 +79,29 @@ body {
     position: absolute;
     top: 60px;
     right: 15px;
-    background: black;
+    background: rgba(0,0,0,0.95);
     padding: 15px;
     border: 1px solid #222;
-    border-radius: 10px;
+    border-radius: 12px;
     flex-direction: column;
+    backdrop-filter: blur(10px);
   }
 
   .menu a {
-    margin: 10px 0;
+    margin: 12px 0;
+    font-size:16px;
   }
 
   .hamburger {
     display: block;
   }
+
+  .menu.show {
+    display:flex;
+  }
 }
 
-.menu.show {
-  display: flex !important;
-}
-
-/* STARS */
+/* STARS BACKGROUND */
 .stars {
   position:fixed;
   width:100%;
@@ -98,6 +109,7 @@ body {
   background:url('https://raw.githubusercontent.com/zaetHR/assets/main/stars.png');
   animation: move 60s linear infinite;
   opacity:0.15;
+  z-index:-1;
 }
 
 @keyframes move {
@@ -127,10 +139,11 @@ p {
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
 
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="hamburger" id="hamburger">☰</div>
 
   <div class="menu" id="menuLinks">
     <a href="index.html">Home</a>
@@ -154,12 +167,15 @@ A system beyond borders, beyond corporations, beyond governments.<br>
 Zaethr is not a company. It is an infrastructure for the next civilization.
 </div>
 
+<!-- JAVASCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  window.toggleMenu = function() {
-    const menu = document.getElementById("menuLinks");
+  const ham = document.getElementById("hamburger");
+  const menu = document.getElementById("menuLinks");
+
+  ham.addEventListener("click", function() {
     menu.classList.toggle("show");
-  }
+  });
 });
 </script>
 
