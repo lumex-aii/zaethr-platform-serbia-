@@ -1,27 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ZÆTHR Serbia Launch</title>
+<title>ZÆTHR — Serbia Base</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body {
-  background:black;
-  color:white;
-  font-family: Arial;
-  text-align:center;
-  padding:100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-h1 { letter-spacing:4px; }
-p { opacity:0.7; max-width:700px; margin:auto; }
+
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding-top: 90px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 9999;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    background: black;
+    padding: 15px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hamburger {
+    display: block;
+  }
+  .menu.show {
+    display: flex;
+  }
+}
+
+/* HERO */
+.hero {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.6em;
+  letter-spacing: 4px;
+}
+
+.hero-sub {
+  font-size: 1.1em;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* CONTENT */
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.section h2 {
+  font-size: 1.6em;
+  letter-spacing: 2px;
+}
+
+.section p {
+  margin-top: 12px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.8em;
+  opacity: 0.5;
+}
 </style>
 </head>
+
 <body>
 
-<h1>SERBIA LAUNCH PHASE</h1>
-<p>
-Belgrade is the first operational node of ZÆTHR Platform.  
-Company registration, courier operations, and AI logistics prototype will start here.  
-This is Phase 1 of global expansion.
-</p>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">ZÆTHR</div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <div class="menu" id="menuLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Join</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 class="hero-title">SERBIA BASE</h1>
+  <p class="hero-sub">Strategic Launch Territory for ZÆTHR Global Expansion</p>
+</div>
+
+<!-- CONTENT -->
+<div class="section">
+  <h2>WHY SERBIA</h2>
+  <p>
+    Serbia offers a unique strategic position between Eastern Europe, the Balkans, and the EU. 
+    It provides low operational costs, strong logistics infrastructure, and favorable business regulations.
+    ZÆTHR is launching its first operational node in Serbia as the foundation for global expansion.
+  </p>
+</div>
+
+<div class="section">
+  <h2>LEGAL & OPERATIONAL STRUCTURE</h2>
+  <p>
+    The company is being established as a Serbian registered entity with decentralized contractor operations.
+    Initial operations will focus on courier services, logistics testing, and AI-based route optimization development.
+  </p>
+</div>
+
+<div class="section">
+  <h2>EU ACCESS STRATEGY</h2>
+  <p>
+    Serbia acts as a gateway to the European Union market. 
+    ZÆTHR will use Serbia as a testing ground before expanding into EU pilot cities with regulatory-compliant models.
+  </p>
+</div>
+
+<div class="section">
+  <h2>LONG-TERM ROLE</h2>
+  <p>
+    Serbia will remain the primary Balkan hub for ZÆTHR operations, engineering talent recruitment, 
+    and decentralized logistics infrastructure development.
+  </p>
+</div>
+
+<div class="footer">
+  ZÆTHR Platform © 2026 — Founder: Murat EFE
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
+
+document.querySelectorAll("#menuLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuLinks").classList.remove("show");
+  });
+});
+</script>
 
 </body>
 </html>
