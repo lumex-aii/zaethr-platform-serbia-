@@ -1,14 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<title>Serbia Expansion — ZÆTHR Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 90px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 9999;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu {
+  display: flex;
+  gap: 18px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.menu a:hover { opacity: 1; }
+
+/* LANGUAGE SWITCH */
+.lang-switch {
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.lang-switch a {
+  cursor: pointer;
+  color: white;
+  opacity: 0.5;
+  margin: 0 3px;
+  text-decoration: none;
+}
+
+.lang-switch a.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: black;
+    padding: 15px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hamburger { display: block; }
+}
+
+/* HERO */
+.hero {
+  margin-top: 50px;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  letter-spacing: 3px;
+}
+
+.hero p {
+  opacity: 0.7;
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+/* CONTENT */
+.section {
+  max-width: 950px;
+  margin: 70px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.section h2 {
+  font-size: 1.9em;
+  margin-bottom: 15px;
+}
+
+.section p {
+  font-size: 1.05em;
+  opacity: 0.75;
+  line-height: 1.7;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 90px;
+  font-size: 13px;
+  opacity: 0.4;
+  padding-bottom: 20px;
+}
+
+.menu.show { display: flex !important; }
+</style>
+</head>
+
 <body>
 
-<header> <!-- NAVBAR --> </header>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">ZÆTHR</div>
 
-<div class="hero">
-  <h1 data-lang="serbia_title"></h1>
-  <p>Serbia is the first operational hub for ZÆTHR Europe.</p>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <div class="menu" id="menuLinks">
+    <a href="index.html" data-lang="nav_home">Home</a>
+    <a href="about.html" data-lang="nav_about">About</a>
+    <a href="vision.html" data-lang="nav_vision">Vision</a>
+    <a href="serbia.html" data-lang="nav_serbia">Serbia</a>
+    <a href="courier.html" data-lang="nav_courier">Courier</a>
+    <a href="roadmap.html" data-lang="nav_roadmap">Roadmap</a>
+    <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+    <div class="lang-switch">
+      <a onclick="setLang('en')" id="btn-en">EN</a> |
+      <a onclick="setLang('tr')" id="btn-tr">TR</a> |
+      <a onclick="setLang('sr')" id="btn-sr">SR</a>
+    </div>
+  </div>
 </div>
 
+<!-- HERO -->
+<div class="hero">
+  <h1 data-lang="serbia_page_title">Serbia Expansion Strategy</h1>
+  <p data-lang="serbia_page_sub">ZÆTHR's European launch gateway and operational headquarters.</p>
+</div>
+
+<!-- SECTIONS -->
+<div class="section">
+  <h2 data-lang="serbia_reason_title">Why Serbia?</h2>
+  <p data-lang="serbia_reason_text"></p>
+</div>
+
+<div class="section">
+  <h2 data-lang="serbia_plan_title">Phase 1 — Operational Launch</h2>
+  <p data-lang="serbia_plan_text"></p>
+</div>
+
+<div class="section">
+  <h2 data-lang="serbia_europe_title">Phase 2 — European Expansion</h2>
+  <p data-lang="serbia_europe_text"></p>
+</div>
+
+<div class="section">
+  <h2 data-lang="serbia_empire_title">Phase 3 — Global Infrastructure Network</h2>
+  <p data-lang="serbia_empire_text"></p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  ZÆTHR Platform © 2026 — Serbia Expansion Strategy Document
+</div>
+
+<!-- MENU SCRIPT -->
+<script>
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
+document.querySelectorAll("#menuLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuLinks").classList.remove("show");
+  });
+});
+</script>
+
+<!-- LANGUAGE SYSTEM -->
 <script src="lang.js"></script>
+
 </body>
 </html>
