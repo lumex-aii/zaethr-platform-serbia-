@@ -1,85 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- META -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZÆTHR Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>ZAETHR Platform</title>
-
-  <!-- STYLE -->
-  <style>
-
-    /* ===== GLOBAL ===== */
-    body {
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 20vh;
-      margin: 0;
-    }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: black;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-      z-index: 999;
-    }
-
-    .logo {
-      font-weight: bold;
-      letter-spacing: 3px;
-      font-size: 18px;
-    }
-
-    .menu a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: white;
-      opacity: 0.7;
-      font-size: 14px;
-    }
-
-    .menu a:hover {
-      opacity: 1;
-    }
-
-    /* ===== MOBILE MENU ===== */
-    .hamburger {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    .menu {
-  display: flex;
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 100px; /* NAVBAR ALTINA BOŞLUK */
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 9999;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+/* MOBILE MENU */
 @media (max-width: 768px) {
   .menu {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 55px;
     right: 15px;
     background: black;
     padding: 15px;
     border: 1px solid #222;
     border-radius: 10px;
     flex-direction: column;
-  }
-
-  .menu.show {
-    display: flex;
+    gap: 10px;
   }
 
   .hamburger {
@@ -87,16 +87,51 @@
   }
 }
 
-  </style>
+/* STARS */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/zaetHR/assets/main/stars.png');
+  animation: move 60s linear infinite;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+@keyframes move {
+  from {background-position: 0 0;}
+  to {background-position: 10000px 5000px;}
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: 4px;
+}
+
+p {
+  font-size: 1.2em;
+  opacity: 0.85;
+  margin-top: 10px;
+}
+
+.manifest {
+  margin-top: 40px;
+  font-size: 0.9em;
+  opacity: 0.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <div class="navbar">
+<!-- NAVBAR -->
+<div class="navbar">
   <div class="logo">ZÆTHR</div>
 
-  <div class="hamburger" id="hamburger">☰</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 
   <div class="menu" id="menuLinks">
     <a href="index.html">Home</a>
@@ -108,31 +143,28 @@
   </div>
 </div>
 
+<div class="stars"></div>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <h1>ZÆTHR PLATFORM</h1>
+<h1>ZÆTHR PLATFORM</h1>
+<p>Global Delivery & AI Business System</p>
+<p>Serbia Launch Phase — Founder: Murat EFE</p>
 
-  <p>Global Delivery & AI Business System</p>
+<div class="manifest">
+We are building a decentralized global delivery empire.<br>
+A system beyond borders, beyond corporations, beyond governments.<br>
+Zaethr is not a company. It is an infrastructure for the next civilization.
+</div>
 
-  <p>Serbia Launch Phase — Founder: Murat EFE</p>
-
-
-  <!-- ===== SCRIPT ===== -->
-  <script>
-  
-document.getElementById("hamburger").onclick = function() {
-  document.getElementById("menuLinks").classList.toggle("show");
-};
-    function toggleMenu() {
-      const menu = document.getElementById("menuLinks");
-
-      if (menu.style.display === "flex") {
-        menu.style.display = "none";
-      } else {
-        menu.style.display = "flex";
-      }
-    }
-  </script>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menuLinks");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+</script>
 
 </body>
 </html>
