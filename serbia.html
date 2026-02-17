@@ -1,172 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ZÆTHR Serbia Launch — Market Entry Strategy</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Zaethr Serbia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <link rel="stylesheet" href="style.css">
 
-body {
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  padding-top: 90px;
-}
+  <style>
+    body {
+      background: #0b0f19;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: black;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #222;
-  z-index: 9999;
-}
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.logo {
-  font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 18px;
-}
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
 
-.menu {
-  display: flex;
-  gap: 20px;
-}
+    .lang-switch a {
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+      opacity: 0.6;
+      text-decoration: none;
+    }
 
-.menu a {
-  text-decoration: none;
-  color: white;
-  opacity: 0.7;
-  font-size: 14px;
-  transition: 0.2s;
-}
+    .lang-switch a.active {
+      opacity: 1;
+      font-weight: bold;
+    }
 
-.menu a:hover {
-  opacity: 1;
-}
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+    }
 
-/* TITLE */
-.title {
-  text-align: center;
-  margin-top: 40px;
-}
+    h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
 
-.title h1 {
-  font-size: 2.6em;
-  letter-spacing: 4px;
-}
+    h2 {
+      margin-top: 30px;
+      font-size: 26px;
+    }
 
-.title p {
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-/* CONTENT */
-.section {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-
-.block {
-  margin-bottom: 35px;
-  border-left: 2px solid #222;
-  padding-left: 18px;
-}
-
-.block h2 {
-  font-size: 1.4em;
-  margin-bottom: 8px;
-}
-
-.block p {
-  opacity: 0.85;
-  line-height: 1.6;
-}
-
-.lang {
-  font-size: 0.9em;
-  opacity: 0.6;
-  margin-top: 6px;
-}
-</style>
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="logo">ZÆTHR</div>
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="serbia.html">Serbia</a>
-    <a href="courier.html">Courier</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a href="contact.html">Join</a>
+<header>
+  <div class="logo">ZAETHR</div>
+
+  <!-- LANGUAGE SWITCH -->
+  <div class="lang-switch">
+    <a onclick="setLang('en')" id="btn-en">EN</a>
+    <a onclick="setLang('tr')" id="btn-tr">TR</a>
+    <a onclick="setLang('sr')" id="btn-sr">SR</a>
   </div>
+</header>
+
+<div class="container">
+  <h1 data-lang="serbia_title"></h1>
+
+  <p data-lang="serbia_p1"></p>
+  <p data-lang="serbia_p2"></p>
+
+  <h2 data-lang="serbia_h2"></h2>
+  <p data-lang="serbia_p3"></p>
+  <p data-lang="serbia_p4"></p>
 </div>
 
-<!-- TITLE -->
-<div class="title">
-  <h1>SERBIA MARKET ENTRY</h1>
-  <p>Why Serbia is our global launch base</p>
-  <p class="lang">Sırbistan neden küresel lansman merkezimiz</p>
-  <p class="lang">Zašto je Srbija naša globalna baza lansiranja</p>
-</div>
+<script>
+const translations = {
+  en: {
+    serbia_title: "Why Serbia?",
+    serbia_p1: "Serbia is becoming one of Europe's fastest-growing startup hubs with strong tech talent and low operational costs.",
+    serbia_p2: "Zaethr chooses Serbia as a strategic base for European expansion and AI innovation.",
+    serbia_h2: "Business Advantages",
+    serbia_p3: "Company formation is fast and affordable with friendly regulations for foreign founders.",
+    serbia_p4: "Serbia offers access to EU markets, skilled workforce, and favorable tax policies for tech startups."
+  },
 
-<!-- CONTENT -->
-<div class="section">
+  tr: {
+    serbia_title: "Neden Sırbistan?",
+    serbia_p1: "Sırbistan, güçlü teknoloji yetenekleri ve düşük operasyon maliyetleri ile Avrupa'nın en hızlı büyüyen startup merkezlerinden biri haline geliyor.",
+    serbia_p2: "Zaethr, Avrupa genişlemesi ve yapay zekâ inovasyonu için Sırbistan’ı stratejik merkez olarak seçiyor.",
+    serbia_h2: "İş Avantajları",
+    serbia_p3: "Şirket kurmak hızlı ve uygun maliyetlidir, yabancı girişimciler için dostane düzenlemeler vardır.",
+    serbia_p4: "Sırbistan, AB pazarlarına erişim, nitelikli iş gücü ve teknoloji girişimleri için avantajlı vergi politikaları sunar."
+  },
 
-  <div class="block">
-    <h2>Founder Relocation Strategy</h2>
-    <p>The founder relocated to Serbia to establish the first operational base of ZÆTHR in Europe.</p>
-    <p class="lang">Kurucu, ZÆTHR’ın Avrupa’daki ilk operasyon merkezini kurmak için Sırbistan’a taşınmıştır.</p>
-    <p class="lang">Osnivač se preselio u Srbiju radi uspostavljanja prve operativne baze ZÆTHR-a u Evropi.</p>
-  </div>
+  sr: {
+    serbia_title: "Zašto Srbija?",
+    serbia_p1: "Srbija postaje jedan od najbrže rastućih startup centara u Evropi sa jakim tehnološkim talentima i niskim troškovima poslovanja.",
+    serbia_p2: "Zaethr bira Srbiju kao stratešku bazu za evropsku ekspanziju i AI inovacije.",
+    serbia_h2: "Poslovne Prednosti",
+    serbia_p3: "Osnivanje kompanije je brzo i povoljno, sa prijateljskim regulativama za strane osnivače.",
+    serbia_p4: "Srbija nudi pristup tržištima EU, kvalifikovanu radnu snagu i povoljne poreske politike za tehnološke startape."
+  }
+};
 
-  <div class="block">
-    <h2>Why Serbia?</h2>
-    <p>Serbia offers strategic location, growing tech ecosystem, affordable operational costs, and access to EU and Balkan markets.</p>
-    <p class="lang">Sırbistan stratejik konumu, büyüyen teknoloji ekosistemi, düşük operasyon maliyetleri ve AB ile Balkan pazarına erişim sunar.</p>
-    <p class="lang">Srbija nudi stratešku lokaciju, rastući tehnološki ekosistem, niske operativne troškove i pristup EU i balkanskim tržištima.</p>
-  </div>
+function setLang(lang) {
+  localStorage.setItem("siteLang", lang);
+  applyLang(lang);
+}
 
-  <div class="block">
-    <h2>Local Operations Plan</h2>
-    <p>Initial operations focus on courier onboarding, AI logistics testing, and pilot delivery zones in Belgrade.</p>
-    <p class="lang">İlk operasyonlar kurye ağı kurulumu, AI lojistik testleri ve Belgrad pilot teslimat bölgelerine odaklanır.</p>
-    <p class="lang">Početne operacije fokusirane su na mrežu kurira, AI logističko testiranje i pilot zone dostave u Beogradu.</p>
-  </div>
+function applyLang(lang) {
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    const key = el.getAttribute("data-lang");
+    el.innerText = translations[lang][key];
+  });
 
-  <div class="block">
-    <h2>Legal & Corporate Structure</h2>
-    <p>ZÆTHR is designed as a scalable global corporate structure with decentralized regional entities.</p>
-    <p class="lang">ZÆTHR, merkeziyetsiz bölgesel yapılarla ölçeklenebilir küresel bir şirket yapısı olarak tasarlanmıştır.</p>
-    <p class="lang">ZÆTHR je dizajniran kao skalabilna globalna korporativna struktura sa decentralizovanim regionalnim entitetima.</p>
-  </div>
+  document.querySelectorAll(".lang-switch a").forEach(a => a.classList.remove("active"));
+  document.getElementById("btn-" + lang).classList.add("active");
+}
 
-  <div class="block">
-    <h2>Long-Term Vision in Serbia</h2>
-    <p>Serbia will become the R&D hub for AI logistics and the gateway to European expansion.</p>
-    <p class="lang">Sırbistan, AI lojistik için Ar-Ge merkezi ve Avrupa genişlemesi için kapı olacaktır.</p>
-    <p class="lang">Srbija će postati R&D centar za AI logistiku i kapija za širenje u Evropu.</p>
-  </div>
-
-</div>
+const defaultLang = localStorage.getItem("siteLang") || "en";
+applyLang(defaultLang);
+</script>
 
 </body>
 </html>
