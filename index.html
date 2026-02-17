@@ -61,27 +61,31 @@
       cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      .menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 15px;
-        background: black;
-        padding: 15px;
-        border: 1px solid #222;
-        border-radius: 10px;
-        flex-direction: column;
-      }
+    .menu {
+  display: flex;
+}
 
-      .menu a {
-        margin: 10px 0;
-      }
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: black;
+    padding: 15px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    flex-direction: column;
+  }
 
-      .hamburger {
-        display: block;
-      }
-    }
+  .menu.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
 
   </style>
 </head>
@@ -115,6 +119,10 @@
 
   <!-- ===== SCRIPT ===== -->
   <script>
+  
+document.getElementById("hamburger").onclick = function() {
+  document.getElementById("menuLinks").classList.toggle("show");
+};
     function toggleMenu() {
       const menu = document.getElementById("menuLinks");
 
