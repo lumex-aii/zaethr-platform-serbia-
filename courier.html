@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ZÆTHR — Courier Network</title>
+<title>ZÆTHR Courier Network</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,10 +13,11 @@
 }
 
 body {
-  background: #0a0a0a;
-  color: white;
+  background: #000;
+  color: #fff;
   font-family: Arial, sans-serif;
-  padding-top: 90px;
+  text-align: center;
+  padding-top: 100px;
 }
 
 /* NAVBAR */
@@ -57,102 +58,49 @@ body {
   opacity: 1;
 }
 
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* MOBILE MENU */
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    position: absolute;
-    top: 55px;
-    right: 15px;
-    background: black;
-    padding: 15px;
-    border: 1px solid #222;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .hamburger {
-    display: block;
-  }
-  .menu.show {
-    display: flex;
-  }
-}
-
 /* HERO */
 .hero {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px;
-  text-align: center;
+  margin-top: 40px;
 }
 
-.hero-title {
-  font-size: 2.6em;
-  letter-spacing: 4px;
+.hero h1 {
+  font-size: 2.8em;
+  letter-spacing: 3px;
 }
 
-.hero-sub {
-  font-size: 1.1em;
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-/* CONTENT */
 .section {
   max-width: 900px;
   margin: 40px auto;
-  padding: 25px;
-}
-
-.section h2 {
-  font-size: 1.8em;
-  letter-spacing: 2px;
-}
-
-.section p {
-  opacity: 0.8;
-  margin-top: 12px;
+  font-size: 1.1em;
   line-height: 1.6;
+  opacity: 0.9;
 }
 
-/* GRID */
-.grid {
+.lang {
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 0.95em;
+}
+
+/* FEATURE GRID */
+.features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 25px;
+  max-width: 1000px;
+  margin: 40px auto;
 }
 
-.card {
-  background: rgba(255,255,255,0.03);
+.feature-box {
   border: 1px solid #222;
   padding: 20px;
   border-radius: 12px;
+  background: rgba(255,255,255,0.02);
 }
 
-.card h3 {
-  letter-spacing: 2px;
-}
-
-.card p {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-top: 8px;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 0.8em;
-  opacity: 0.5;
+.feature-box h3 {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 </style>
 </head>
@@ -162,10 +110,7 @@ body {
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
-
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-  <div class="menu" id="menuLinks">
+  <div class="menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="vision.html">Vision</a>
@@ -178,79 +123,57 @@ body {
 
 <!-- HERO -->
 <div class="hero">
-  <h1 class="hero-title">ZÆTHR COURIER NETWORK</h1>
-  <p class="hero-sub">Human Mobility Layer for the Global AI Economy</p>
+  <h1>ZÆTHR Courier Network</h1>
+  <p class="lang">ZÆTHR Kurye Ağı</p>
+  <p class="lang">ZÆTHR Kurirska Mreža</p>
 </div>
 
-<!-- SECTION 1 -->
+<!-- INTRO -->
 <div class="section">
-  <h2>WHY COURIER NETWORK?</h2>
-  <p>
-    ZÆTHR Courier Network is the first step toward a decentralized global delivery infrastructure.
-    Human couriers will be integrated into AI-driven logistics systems, creating a hybrid human-machine economy layer.
-  </p>
+  <p>ZÆTHR is building a global decentralized courier and logistics network powered by AI.</p>
+  <p class="lang">ZÆTHR, yapay zekâ destekli küresel merkeziyetsiz kurye ve lojistik ağı inşa ediyor.</p>
+  <p class="lang">ZÆTHR gradi globalnu decentralizovanu kurirsku i logističku mrežu pokretanu AI sistemima.</p>
 </div>
 
-<!-- GRID FEATURES -->
-<div class="section">
-  <h2>CORE SYSTEM MODULES</h2>
+<!-- FEATURES -->
+<div class="features">
 
-  <div class="grid">
-    <div class="card">
-      <h3>GLOBAL COURIER HUB</h3>
-      <p>Decentralized network of independent couriers operating under AI orchestration.</p>
-    </div>
-
-    <div class="card">
-      <h3>AI ROUTING ENGINE</h3>
-      <p>Machine intelligence assigns delivery routes, pricing, and risk scoring.</p>
-    </div>
-
-    <div class="card">
-      <h3>DIGITAL IDENTITY</h3>
-      <p>Couriers receive verified digital profiles connected to blockchain credentials.</p>
-    </div>
-
-    <div class="card">
-      <h3>MICRO-ECONOMY SYSTEM</h3>
-      <p>Automated payment, crypto-based rewards, and smart contracts for delivery tasks.</p>
-    </div>
+  <div class="feature-box">
+    <h3>Global Courier System</h3>
+    <p>Independent couriers connected to a unified platform.</p>
+    <p class="lang">Bağımsız kuryelerin tek platformda birleştiği sistem.</p>
+    <p class="lang">Nezavisni kuriri povezani u jedinstvenu platformu.</p>
   </div>
+
+  <div class="feature-box">
+    <h3>AI Route Optimization</h3>
+    <p>Smart delivery routing using artificial intelligence.</p>
+    <p class="lang">Yapay zekâ ile akıllı teslimat rota optimizasyonu.</p>
+    <p class="lang">Pametno optimizovanje ruta isporuke pomoću AI.</p>
+  </div>
+
+  <div class="feature-box">
+    <h3>Decentralized Economy</h3>
+    <p>Couriers earn directly without centralized corporations.</p>
+    <p class="lang">Merkezi şirketler olmadan doğrudan kazanç modeli.</p>
+    <p class="lang">Zarada bez centralizovanih korporacija.</p>
+  </div>
+
+  <div class="feature-box">
+    <h3>Cross-Border Expansion</h3>
+    <p>Designed for international and borderless operations.</p>
+    <p class="lang">Uluslararası ve sınır ötesi operasyonlar için tasarlandı.</p>
+    <p class="lang">Dizajnirano za međunarodne i bezgranične operacije.</p>
+  </div>
+
 </div>
 
-<!-- SECTION 2 -->
+<!-- MISSION -->
 <div class="section">
-  <h2>FOUNDER OPERATIONS PHASE</h2>
-  <p>
-    Initial operations will start with founder-led courier missions in Serbia.
-    This phase validates system design, operational models, and economic feasibility before global scale.
-  </p>
+  <p>Our mission is to create the first autonomous courier infrastructure for the next digital civilization.</p>
+  <p class="lang">Misyonumuz, yeni dijital medeniyet için ilk otonom kurye altyapısını kurmaktır.</p>
+  <p class="lang">Naša misija je izgradnja prve autonomne kurirske infrastrukture za sledeću digitalnu civilizaciju.</p>
 </div>
-
-<!-- SECTION 3 -->
-<div class="section">
-  <h2>FUTURE EXPANSION</h2>
-  <p>
-    After proof of concept, the Courier Network will expand into Europe, Middle East, and global smart cities.
-    Integration with autonomous drones and robotic couriers is planned in later phases.
-  </p>
-</div>
-
-<div class="footer">
-  ZÆTHR Platform © 2026 — Founder: Murat EFE
-</div>
-
-<script>
-function toggleMenu() {
-  document.getElementById("menuLinks").classList.toggle("show");
-}
-
-document.querySelectorAll("#menuLinks a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("menuLinks").classList.remove("show");
-  });
-});
-</script>
 
 </body>
 </html>
