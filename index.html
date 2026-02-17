@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ZÆTHR Platform — Global Delivery & AI Infrastructure</title>
+<title>ZÆTHR Platform</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +13,18 @@
 }
 
 body {
-  background: #000;
-  color: #fff;
+  background: black;
+  color: white;
   font-family: Arial, sans-serif;
+  text-align: center;
   padding-top: 90px;
+  overflow-x: hidden;
 }
 
 /* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   background: black;
   padding: 12px 20px;
@@ -40,104 +41,100 @@ body {
   font-size: 18px;
 }
 
+/* MENU */
 .menu {
   display: flex;
   gap: 20px;
 }
 
 .menu a {
-  text-decoration: none;
   color: white;
-  opacity: 0.7;
+  text-decoration: none;
   font-size: 14px;
-  transition: 0.2s;
+  opacity: 0.7;
 }
 
 .menu a:hover {
   opacity: 1;
 }
 
-/* HERO */
-.hero {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.hero h1 {
-  font-size: 3em;
-  letter-spacing: 4px;
-}
-
-.hero p {
-  margin-top: 10px;
-  font-size: 1.2em;
-  opacity: 0.85;
-}
-
-/* SECTIONS */
-.section {
-  max-width: 1000px;
-  margin: 50px auto;
-  text-align: center;
-  font-size: 1.1em;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.lang {
-  font-size: 0.95em;
-  opacity: 0.65;
-  margin-top: 5px;
-}
-
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: 40px auto;
-}
-
-.feature-box {
-  border: 1px solid #222;
-  padding: 22px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.02);
-}
-
-.feature-box h3 {
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-  .lang-switch {
-  font-size: 13px;
-}
-
+/* LANGUAGE SWITCH */
 .lang-switch a {
   color: white;
   text-decoration: none;
+  font-size: 13px;
   opacity: 0.6;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 .lang-switch a:hover {
   opacity: 1;
 }
-  .mobile-lang {
+
+/* HAMBURGER */
+.hamburger {
   display: none;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 10px;
-  text-align: left;
+  font-size: 26px;
+  cursor: pointer;
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    background: black;
+    padding: 15px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
   .lang-switch {
     display: none;
   }
-  .mobile-lang {
+
+  .menu.show {
     display: flex;
   }
+}
+
+/* HERO */
+.hero {
+  margin-top: 60px;
+}
+
+.hero-title {
+  font-size: 3em;
+  letter-spacing: 4px;
+}
+
+.hero-sub {
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+.hero-founder {
+  font-size: 1em;
+  opacity: 0.6;
+}
+
+/* MANIFEST */
+.manifest {
+  margin-top: 40px;
+  font-size: 0.95em;
+  opacity: 0.7;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
 </head>
@@ -148,91 +145,98 @@ body {
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
 
-  <div class="lang-switch mobile-lang">
-  <a href="#">EN</a>
-  <a href="#">TR</a>
-  <a href="#">SR</a>
-</div>
-
+  <!-- LANGUAGE -->
   <div class="lang-switch">
-    <a href="#">EN</a> | 
-    <a href="#">TR</a> | 
-    <a href="#">SR</a>
+    <a onclick="setLang('en')">EN</a> |
+    <a onclick="setLang('tr')">TR</a> |
+    <a onclick="setLang('sr')">SR</a>
   </div>
 
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 
   <div class="menu" id="menuLinks">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="serbia.html">Serbia</a>
-    <a href="courier.html">Courier</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a href="contact.html">Join</a>
+    <a data-key="home">Home</a>
+    <a data-key="about">About</a>
+    <a data-key="serbia">Serbia</a>
+    <a data-key="courier">Courier</a>
+    <a data-key="roadmap">Roadmap</a>
+    <a data-key="join">Join</a>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>ZÆTHR PLATFORM</h1>
-  <p>Global Delivery & AI Business Infrastructure</p>
-  <p class="lang">Küresel Teslimat ve Yapay Zekâ İş Altyapısı</p>
-  <p class="lang">Globalna isporuka i AI poslovna infrastruktura</p>
+  <h1 class="hero-title" data-key="title">ZÆTHR PLATFORM</h1>
+  <p class="hero-sub" data-key="subtitle">Global Delivery & AI Business System</p>
+  <p class="hero-founder" data-key="founder">Serbia Launch Phase — Founder: Murat EFE</p>
 </div>
 
-<!-- INTRO -->
-<div class="section">
-  <p>ZÆTHR is a next-generation decentralized platform connecting couriers, businesses, and AI-driven logistics systems.</p>
-  <p class="lang">ZÆTHR, kuryeleri, işletmeleri ve yapay zekâ destekli lojistik sistemlerini birleştiren yeni nesil merkeziyetsiz platformdur.</p>
-  <p class="lang">ZÆTHR je decentralizovana platforma nove generacije koja povezuje kurire, kompanije i AI logističke sisteme.</p>
+<!-- MANIFEST -->
+<div class="manifest" data-key="manifest">
+We are building a decentralized global delivery empire.<br>
+A system beyond borders, beyond corporations, beyond governments.<br>
+Zaethr is not a company. It is an infrastructure for the next civilization.
 </div>
 
-<!-- FEATURES -->
-<div class="features">
+<script>
+// HAMBURGER
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
 
-  <div class="feature-box">
-    <h3>Decentralized Delivery Network</h3>
-    <p>Independent couriers connected in a borderless ecosystem.</p>
-    <p class="lang">Bağımsız kuryelerden oluşan sınır tanımayan ekosistem.</p>
-    <p class="lang">Mreža nezavisnih kurira bez granica.</p>
-  </div>
+// LANGUAGE DATA
+const translations = {
+  en: {
+    home: "Home",
+    about: "About",
+    serbia: "Serbia",
+    courier: "Courier",
+    roadmap: "Roadmap",
+    join: "Join",
+    title: "ZÆTHR PLATFORM",
+    subtitle: "Global Delivery & AI Business System",
+    founder: "Serbia Launch Phase — Founder: Murat EFE",
+    manifest: "We are building a decentralized global delivery empire.<br>A system beyond borders, beyond corporations, beyond governments.<br>Zaethr is not a company. It is an infrastructure for the next civilization."
+  },
+  tr: {
+    home: "Ana Sayfa",
+    about: "Hakkımızda",
+    serbia: "Sırbistan",
+    courier: "Kurye Sistemi",
+    roadmap: "Yol Haritası",
+    join: "Katıl",
+    title: "ZÆTHR PLATFORMU",
+    subtitle: "Global Teslimat ve Yapay Zeka İş Sistemi",
+    founder: "Sırbistan Lansmanı — Kurucu: Murat EFE",
+    manifest: "Merkeziyetsiz küresel bir teslimat imparatorluğu kuruyoruz.<br>Sınırların, şirketlerin ve hükümetlerin ötesinde bir sistem.<br>Zaethr bir şirket değil. Gelecek medeniyet için bir altyapıdır."
+  },
+  sr: {
+    home: "Početna",
+    about: "O Nama",
+    serbia: "Srbija",
+    courier: "Kurir Sistem",
+    roadmap: "Plan",
+    join: "Pridruži se",
+    title: "ZÆTHR PLATFORMA",
+    subtitle: "Globalni sistem dostave i AI biznisa",
+    founder: "Lansiranje u Srbiji — Osnivač: Murat EFE",
+    manifest: "Gradimo decentralizovano globalno carstvo dostave.<br>Sistem izvan granica, korporacija i vlada.<br>Zaethr nije kompanija. To je infrastruktura za sledeću civilizaciju."
+  }
+};
 
-  <div class="feature-box">
-    <h3>AI Logistics Engine</h3>
-    <p>Smart routing, demand prediction, and automation.</p>
-    <p class="lang">Akıllı rota, talep tahmini ve otomasyon sistemi.</p>
-    <p class="lang">Pametno rutiranje, predviđanje potražnje i automatizacija.</p>
-  </div>
+// SET LANGUAGE
+function setLang(lang) {
+  localStorage.setItem("lang", lang);
+  document.querySelectorAll("[data-key]").forEach(el => {
+    const key = el.getAttribute("data-key");
+    el.innerHTML = translations[lang][key];
+  });
+}
 
-  <div class="feature-box">
-    <h3>Global Expansion First</h3>
-    <p>Designed to scale across countries and continents.</p>
-    <p class="lang">Ülkeler ve kıtalar arasında ölçeklenmek için tasarlandı.</p>
-    <p class="lang">Dizajnirano za globalno širenje.</p>
-  </div>
-
-  <div class="feature-box">
-    <h3>Next Digital Economy</h3>
-    <p>Building infrastructure for the post-corporate economy.</p>
-    <p class="lang">Korporasyon sonrası ekonomi için altyapı inşa ediyoruz.</p>
-    <p class="lang">Gradimo infrastrukturu za post-korporativnu ekonomiju.</p>
-  </div>
-
-</div>
-
-<!-- MISSION -->
-<div class="section">
-  <p>Our mission is to create a new global delivery economy powered by artificial intelligence and decentralized systems.</p>
-  <p class="lang">Misyonumuz, yapay zekâ ve merkeziyetsiz sistemlerle yeni bir küresel teslimat ekonomisi yaratmaktır.</p>
-  <p class="lang">Naša misija je stvaranje nove globalne ekonomije isporuke pomoću AI i decentralizovanih sistema.</p>
-</div>
-
-<!-- FOUNDER -->
-<div class="section">
-  <p>Founder: Murat EFE — Serbia Launch Phase</p>
-  <p class="lang">Kurucu: Murat EFE — Sırbistan Lansman Aşaması</p>
-  <p class="lang">Osnivač: Murat EFE — Faza lansiranja u Srbiji</p>
-</div>
+// AUTO LOAD LANGUAGE
+const savedLang = localStorage.getItem("lang") || "en";
+setLang(savedLang);
+</script>
 
 </body>
 </html>
