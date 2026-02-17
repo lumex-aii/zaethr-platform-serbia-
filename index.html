@@ -1,199 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-<title>ZÆTHR Platform</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZÆTHR PLATFORM</title>
 
 <style>
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
+/* BODY */
 body {
   background: black;
   color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding-top: 100px;
-  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: black;
-  padding: 12px 20px;
+/* HEADER */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 25px;
   border-bottom: 1px solid #222;
-  z-index: 9999;
 }
 
 .logo {
+  font-size: 22px;
   font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 18px;
+  letter-spacing: 2px;
 }
 
-.menu {
+nav {
   display: flex;
   gap: 20px;
 }
 
-.menu a {
+nav a {
+  color: white;
   text-decoration: none;
-  color: white;
-  opacity: 0.7;
   font-size: 14px;
-  transition: 0.2s;
+  opacity: 0.8;
 }
 
-.menu a:hover {
+nav a:hover {
   opacity: 1;
-}
-
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: white;
-}
-
-/* MOBILE MENU */
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    position: absolute;
-    top: 55px;
-    right: 15px;
-    background: black;
-    padding: 15px;
-    border: 1px solid #222;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-}
-
-.menu.show {
-  display: flex !important;
-}
-
-/* STARS BACKGROUND */
-.stars {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('https://raw.githubusercontent.com/zaetHR/assets/main/stars.png');
-  animation: move 60s linear infinite;
-  opacity: 0.15;
-  z-index: -1;
-}
-
-.stars2 {
-  animation-duration: 120s;
-  opacity: 0.05;
 }
 
 /* HERO */
 .hero {
-  margin-top: 60px;
+  padding: 100px 20px;
+  text-align: center;
 }
 
-.hero-title {
-  font-size: 3em;
-  letter-spacing: 4px;
+.hero h1 {
+  font-size: 48px;
 }
 
-.hero-sub {
-  font-size: 1.2em;
-  opacity: 0.8;
+.hero p {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-top: 10px;
 }
 
-.hero-founder {
-  font-size: 1em;
+/* SECTIONS */
+.section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.section p {
+  opacity: 0.75;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #222;
+  font-size: 14px;
   opacity: 0.6;
 }
 
-.manifest {
-  margin-top: 40px;
-  font-size: 0.9em;
-  opacity: 0.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@keyframes move {
-  from {background-position: 0 0;}
-  to {background-position: 10000px 5000px;}
-}
 </style>
 </head>
 
 <body>
 
-<!-- STARS -->
-<div class="stars"></div>
-<div class="stars stars2"></div>
-
-<!-- NAVBAR -->
-<div class="navbar">
+<header>
   <div class="logo">ZÆTHR</div>
+  <nav>
+    <a href="#about">Biz Kimiz</a>
+    <a href="#mission">Vizyon</a>
+    <a href="#services">Sistem</a>
+    <a href="#contact">İletişim</a>
+  </nav>
+</header>
 
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-  <div class="menu" id="menuLinks">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="serbia.html">Serbia</a>
-    <a href="courier.html">Courier</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a href="contact.html">Join</a>
-  </div>
-  
 <div class="hero">
-  <h1 class="hero-title">ZÆTHR PLATFORM</h1>
-  <p class="hero-sub">Global Delivery & AI Business System</p>
-  <p class="hero-founder">Founder & Vision Architect — Murat EFE</p>
-</div>
-  
-<div class="hero">
-  <h1 class="hero-title">ZÆTHR PLATFORM</h1>
-  <p class="hero-sub">Global Delivery & AI Business System</p>
-  <p class="hero-founder">Serbia Launch Phase — Founder: Murat EFE</p>
+  <h1>ZÆTHR PLATFORM</h1>
+  <p>Global Delivery & AI Business System</p>
+  <p>Serbia Launch Phase — Founder: Murat EFE</p>
 </div>
 
-<div class="manifest">
-We are building a decentralized global delivery empire.<br>
-A system beyond borders, beyond corporations, beyond governments.<br>
-Zaethr is not a company. It is an infrastructure for the next civilization.
+<div class="section" id="about">
+  <h2>Biz Kimiz</h2>
+  <p>
+    ZÆTHR, yapay zeka destekli global teslimat ve dijital iş sistemleri geliştiren
+    yeni nesil bir teknoloji girişimidir. İlk lansman Sırbistan üzerinden planlanmaktadır.
+  </p>
 </div>
 
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("menuLinks");
-  menu.classList.toggle("show");
-}
+<div class="section" id="mission">
+  <h2>Vizyon & Misyon</h2>
+  <p>
+    Amacımız, fiziksel lojistik ile dijital yapay zekayı birleştirerek
+    dünya çapında ölçeklenebilir bir iş altyapısı kurmaktır.
+  </p>
+</div>
 
-document.querySelectorAll("#menuLinks a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("menuLinks").classList.remove("show");
-  });
-});
-</script>
+<div class="section" id="services">
+  <h2>Platform Sistemi</h2>
+  <p>
+    • Global Delivery Network<br>
+    • AI Business Automation<br>
+    • Digital Payment Infrastructure<br>
+    • Global Company Launch Framework
+  </p>
+</div>
+
+<div class="section" id="contact">
+  <h2>İletişim</h2>
+  <p>Email: contact@zaethr.com<br>
+     Founder: Murat EFE</p>
+</div>
+
+<footer>
+  © 2026 ZÆTHR PLATFORM — All Rights Reserved
+</footer>
 
 </body>
 </html>
