@@ -120,7 +120,10 @@ body {
   font-size: 1em;
   opacity: 0.6;
 }
-
+.stars, .stars2 {
+  display: none !important;
+}
+  
 @keyframes move {
   from {background-position: 0 0;}
   to {background-position: 10000px 5000px;}
@@ -197,6 +200,10 @@ document.querySelectorAll("#menuLinks a").forEach(link => {
   });
 });
 </script>
-
+body {
+  background: #0a0a0a !important;
+  color: #fff !important;
+}
+  
 </body>
 </html>
