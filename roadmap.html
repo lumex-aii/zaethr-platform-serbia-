@@ -1,171 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ZÆTHR Roadmap — Global Expansion Timeline</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision AI Startup - Roadmap</title>
+<link rel="stylesheet" href="style.css">
+
+<script>
+const translations = {
+  en: {
+    title: "Roadmap",
+    r1_title: "Phase 1 - Foundation",
+    r1_desc: "Company registration, legal setup, branding, and MVP AI courier platform launch.",
+    r2_title: "Phase 2 - Market Entry",
+    r2_desc: "Courier recruitment, AI dispatch system beta, partnerships with local businesses.",
+    r3_title: "Phase 3 - Scaling",
+    r3_desc: "Expansion to Serbia and EU, automation, investor funding round.",
+    r4_title: "Phase 4 - AI Ecosystem",
+    r4_desc: "Full AI logistics ecosystem, autonomous delivery research, global expansion.",
+    footer: "© 2026 Vision AI Startup. All rights reserved."
+  },
+  tr: {
+    title: "Yol Haritası",
+    r1_title: "Aşama 1 - Temel Kurulum",
+    r1_desc: "Şirket kurulumu, yasal süreçler, marka kimliği ve AI kurye platformu MVP lansmanı.",
+    r2_title: "Aşama 2 - Pazara Giriş",
+    r2_desc: "Kurye işe alımı, AI dağıtım sistemi beta, yerel işletmelerle iş ortaklıkları.",
+    r3_title: "Aşama 3 - Büyüme",
+    r3_desc: "Sırbistan ve AB genişleme, otomasyon, yatırımcı fon turu.",
+    r4_title: "Aşama 4 - AI Ekosistemi",
+    r4_desc: "Tam AI lojistik ekosistemi, otonom teslimat araştırması, global genişleme.",
+    footer: "© 2026 Vision AI Startup. Tüm hakları saklıdır."
+  },
+  sr: {
+    title: "Plan razvoja",
+    r1_title: "Faza 1 - Osnova",
+    r1_desc: "Registracija kompanije, pravni procesi, brendiranje i lansiranje AI kurirske platforme.",
+    r2_title: "Faza 2 - Ulazak na tržište",
+    r2_desc: "Regrutovanje kurira, beta AI sistem raspodele, partnerstva sa lokalnim firmama.",
+    r3_title: "Faza 3 - Širenje",
+    r3_desc: "Širenje na Srbiju i EU, automatizacija, investicioni krug.",
+    r4_title: "Faza 4 - AI Ekosistem",
+    r4_desc: "Pun AI logistički ekosistem, istraživanje autonomne dostave, globalno širenje.",
+    footer: "© 2026 Vision AI Startup. Sva prava zadržana."
+  }
+};
+
+function setLanguage(lang) {
+  localStorage.setItem("lang", lang);
+  applyLanguage();
+}
+
+function applyLanguage() {
+  const lang = localStorage.getItem("lang") || "en";
+  document.querySelectorAll("[data-key]").forEach(el => {
+    const key = el.getAttribute("data-key");
+    el.textContent = translations[lang][key];
+  });
+}
+
+document.addEventListener("DOMContentLoaded", applyLanguage);
+</script>
 
 <style>
-* {
+body {
+  font-family: Arial, sans-serif;
+  background: #0a0f2c;
+  color: white;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  padding-top: 90px;
-}
-
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: black;
-  padding: 12px 20px;
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #222;
-  z-index: 9999;
+  padding: 15px 40px;
+  background: #0d1440;
 }
 
 .logo {
+  font-size: 22px;
   font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 18px;
+  color: #00b3ff;
 }
 
-.menu {
-  display: flex;
-  gap: 20px;
+.lang-buttons button {
+  margin-left: 8px;
+  padding: 6px 12px;
+  border: none;
+  background: #00b3ff;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.menu a {
-  text-decoration: none;
-  color: white;
-  opacity: 0.7;
-  font-size: 14px;
-  transition: 0.2s;
+.lang-buttons button:hover {
+  background: white;
 }
 
-.menu a:hover {
-  opacity: 1;
+section {
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: auto;
 }
 
-/* PAGE TITLE */
-.title {
+.roadmap-item {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #00b3ff;
+  border-radius: 8px;
+}
+
+footer {
   text-align: center;
+  padding: 20px;
+  background: #0d1440;
+  font-size: 14px;
   margin-top: 40px;
 }
-
-.title h1 {
-  font-size: 2.8em;
-  letter-spacing: 4px;
-}
-
-.title p {
-  opacity: 0.8;
-  margin-top: 10px;
-  font-size: 1.1em;
-}
-
-/* ROADMAP GRID */
-.roadmap {
-  max-width: 1100px;
-  margin: 50px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-.phase {
-  border: 1px solid #222;
-  padding: 22px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.02);
-}
-
-.phase h3 {
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.lang {
-  font-size: 0.9em;
-  opacity: 0.65;
-  margin-top: 6px;
-}
 </style>
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="logo">ZÆTHR</div>
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="serbia.html">Serbia</a>
-    <a href="courier.html">Courier</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a href="contact.html">Join</a>
+<header>
+  <div class="logo">Vision AI Startup</div>
+  <div class="lang-buttons">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('tr')">TR</button>
+    <button onclick="setLanguage('sr')">SR</button>
   </div>
-</div>
+</header>
 
-<!-- TITLE -->
-<div class="title">
-  <h1>ZÆTHR ROADMAP</h1>
-  <p>Global Expansion Timeline</p>
-  <p class="lang">Küresel Genişleme Zaman Çizelgesi</p>
-  <p class="lang">Globalna mapa puta razvoja</p>
-</div>
+<section>
+  <h1 data-key="title">Roadmap</h1>
 
-<!-- ROADMAP PHASES -->
-<div class="roadmap">
-
-  <div class="phase">
-    <h3>Phase 1 — Concept & Foundation (2026)</h3>
-    <p>Brand creation, platform design, Serbia market entry, and courier onboarding.</p>
-    <p class="lang">Marka oluşturma, platform tasarımı, Sırbistan pazara giriş ve kurye ağı kurulumu.</p>
-    <p class="lang">Kreiranje brenda, dizajn platforme, ulazak na tržište Srbije i mreža kurira.</p>
+  <div class="roadmap-item">
+    <h3 data-key="r1_title">Phase 1 - Foundation</h3>
+    <p data-key="r1_desc"></p>
   </div>
 
-  <div class="phase">
-    <h3>Phase 2 — MVP & Local Operations (2026–2027)</h3>
-    <p>Launch MVP, AI routing system, pilot operations in Belgrade and Novi Sad.</p>
-    <p class="lang">MVP lansmanı, AI rota sistemi ve Belgrad & Novi Sad pilot operasyonları.</p>
-    <p class="lang">Lansiranje MVP-a, AI rutiranje i pilot operacije u Beogradu i Novom Sadu.</p>
+  <div class="roadmap-item">
+    <h3 data-key="r2_title">Phase 2 - Market Entry</h3>
+    <p data-key="r2_desc"></p>
   </div>
 
-  <div class="phase">
-    <h3>Phase 3 — Regional Expansion (2027–2028)</h3>
-    <p>Expansion to Balkan region and Eastern Europe, strategic partnerships.</p>
-    <p class="lang">Balkanlar ve Doğu Avrupa’ya genişleme, stratejik ortaklıklar.</p>
-    <p class="lang">Širenje na Balkan i Istočnu Evropu, strateška partnerstva.</p>
+  <div class="roadmap-item">
+    <h3 data-key="r3_title">Phase 3 - Scaling</h3>
+    <p data-key="r3_desc"></p>
   </div>
 
-  <div class="phase">
-    <h3>Phase 4 — Global Platform (2028–2030)</h3>
-    <p>Global AI logistics network, decentralized courier economy infrastructure.</p>
-    <p class="lang">Küresel AI lojistik ağı ve merkeziyetsiz kurye ekonomisi altyapısı.</p>
-    <p class="lang">Globalna AI logistička mreža i decentralizovana kurirska ekonomija.</p>
+  <div class="roadmap-item">
+    <h3 data-key="r4_title">Phase 4 - AI Ecosystem</h3>
+    <p data-key="r4_desc"></p>
   </div>
 
-  <div class="phase">
-    <h3>Phase 5 — Autonomous Delivery Future (2030+)</h3>
-    <p>Integration of drones, autonomous vehicles, and smart city logistics systems.</p>
-    <p class="lang">Drone, otonom araç ve akıllı şehir lojistik entegrasyonu.</p>
-    <p class="lang">Integracija dronova, autonomnih vozila i pametnih gradova.</p>
-  </div>
+</section>
 
-</div>
+<footer>
+  <p data-key="footer"></p>
+</footer>
 
 </body>
 </html>
