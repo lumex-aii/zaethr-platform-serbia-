@@ -97,6 +97,22 @@ body {
   opacity: 0.15;
   z-index: -1;
 }
+  .hero {
+  margin-top: 60px;
+  text-align: center;
+}
+.hero-title {
+  font-size: 3em;
+  letter-spacing: 4px;
+}
+.hero-sub {
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+.hero-founder {
+  font-size: 1em;
+  opacity: 0.6;
+}
 
 @keyframes move {
   from {background-position: 0 0;}
@@ -166,6 +182,16 @@ function toggleMenu() {
   const menu = document.getElementById("menuLinks");
   menu.classList.toggle("show");
 }
+  function toggleMenu() {
+  const menu = document.getElementById("menuLinks");
+  menu.classList.toggle("show");
+}
+
+document.querySelectorAll("#menuLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuLinks").classList.remove("show");
+  });
+});
 </script>
 
 </body>
