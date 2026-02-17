@@ -1,31 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ZÆTHR Roadmap</title>
+<title>ZÆTHR — Roadmap</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body {
-  background:black;
-  color:white;
-  font-family: Arial;
-  text-align:center;
-  padding:100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-h1 { letter-spacing:4px; }
+
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding-top: 90px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 9999;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    background: black;
+    padding: 15px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hamburger {
+    display: block;
+  }
+  .menu.show {
+    display: flex;
+  }
+}
+
+/* HERO */
+.hero {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.6em;
+  letter-spacing: 4px;
+}
+
+.hero-sub {
+  font-size: 1.1em;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* TIMELINE */
+.timeline {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
 .phase {
-  margin-top:40px;
-  font-size:20px;
-  opacity:0.8;
+  border-left: 2px solid #333;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.phase h2 {
+  font-size: 1.6em;
+  letter-spacing: 2px;
+}
+
+.phase span {
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+.phase p {
+  margin-top: 10px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.8em;
+  opacity: 0.5;
 }
 </style>
 </head>
+
 <body>
 
-<h1>ZÆTHR PLATFORM ROADMAP</h1>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">ZÆTHR</div>
 
-<div class="phase">Phase 1 — Serbia Courier Operations (2026)</div>
-<div class="phase">Phase 2 — Balkan Regional Expansion (2027)</div>
-<div class="phase">Phase 3 — AI Logistics Core Development (2028–2030)</div>
-<div class="phase">Phase 4 — Global Platform Infrastructure (2030+)</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <div class="menu" id="menuLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Join</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 class="hero-title">ZÆTHR ROADMAP</h1>
+  <p class="hero-sub">Strategic Expansion Plan for Global AI Logistics Infrastructure</p>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+
+  <div class="phase">
+    <h2>PHASE 0 — FOUNDATION</h2>
+    <span>2026 Q1</span>
+    <p>
+      Legal company formation in Serbia. Founder-operated courier missions. 
+      Initial brand, platform architecture, and decentralized logistics concept validation.
+    </p>
+  </div>
+
+  <div class="phase">
+    <h2>PHASE 1 — LOCAL NETWORK</h2>
+    <span>2026 Q2–Q3</span>
+    <p>
+      Recruit independent couriers, deploy digital identity system, 
+      launch AI-based route optimization prototype and payment automation.
+    </p>
+  </div>
+
+  <div class="phase">
+    <h2>PHASE 2 — REGIONAL EXPANSION</h2>
+    <span>2027</span>
+    <p>
+      Expansion into Balkan region and EU pilot cities. 
+      Partnerships with delivery platforms, smart contracts for logistics tasks.
+    </p>
+  </div>
+
+  <div class="phase">
+    <h2>PHASE 3 — AI LOGISTICS PLATFORM</h2>
+    <span>2028</span>
+    <p>
+      Full AI orchestration of human couriers, predictive demand modeling, 
+      decentralized economic system for global delivery tasks.
+    </p>
+  </div>
+
+  <div class="phase">
+    <h2>PHASE 4 — AUTONOMOUS DELIVERY</h2>
+    <span>2029+</span>
+    <p>
+      Integration with drones, robotic couriers, and smart city infrastructure. 
+      ZÆTHR becomes a global human-machine mobility layer.
+    </p>
+  </div>
+
+</div>
+
+<div class="footer">
+  ZÆTHR Platform © 2026 — Founder: Murat EFE
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
+
+document.querySelectorAll("#menuLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuLinks").classList.remove("show");
+  });
+});
+</script>
 
 </body>
 </html>
