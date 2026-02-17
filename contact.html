@@ -1,35 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Join ZÆTHR</title>
+<title>ZÆTHR — Contact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body {
-  background:black;
-  color:white;
-  font-family: Arial;
-  text-align:center;
-  padding:100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-h1 { letter-spacing:4px; }
-p { opacity:0.8; font-size:18px; }
-.email {
-  margin-top:30px;
-  font-size:22px;
-  font-weight:bold;
+
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding-top: 90px;
+  text-align: center;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 9999;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    background: black;
+    padding: 15px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hamburger {
+    display: block;
+  }
+  .menu.show {
+    display: flex;
+  }
+}
+
+/* HERO */
+.hero {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+}
+
+.hero-title {
+  font-size: 2.5em;
+  letter-spacing: 4px;
+}
+
+.hero-sub {
+  font-size: 1.1em;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* CONTACT FORM */
+.contact-box {
+  max-width: 600px;
+  margin: 40px auto;
+  background: rgba(255,255,255,0.03);
+  padding: 25px;
+  border: 1px solid #222;
+  border-radius: 12px;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #111;
+  border: 1px solid #222;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.contact-box textarea {
+  resize: none;
+  height: 120px;
+}
+
+.contact-box button {
+  margin-top: 15px;
+  padding: 12px;
+  width: 100%;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contact-box button:hover {
+  background: #ccc;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 50px;
+  font-size: 0.8em;
+  opacity: 0.5;
 }
 </style>
 </head>
+
 <body>
 
-<h1>JOIN ZÆTHR PLATFORM</h1>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">ZÆTHR</div>
 
-<p>We are building a decentralized global delivery & AI business system.  
-If you are an investor, developer, courier, or strategic partner — contact us.</p>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-<div class="email">
-Founder: Murat EFE<br><br>
-Contact: zaethr.io@gmail.com
+  <div class="menu" id="menuLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Join</a>
+  </div>
 </div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 class="hero-title">CONTACT ZÆTHR</h1>
+  <p class="hero-sub">Join the network. Build the future. Become infrastructure.</p>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="contact-box">
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Country / City">
+    <textarea placeholder="Message or Collaboration Proposal"></textarea>
+    <button type="submit">SEND MESSAGE</button>
+  </form>
+</div>
+
+<div class="footer">
+  ZÆTHR Platform © 2026 — Founder: Murat EFE
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
+
+document.querySelectorAll("#menuLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuLinks").classList.remove("show");
+  });
+});
+</script>
 
 </body>
 </html>
