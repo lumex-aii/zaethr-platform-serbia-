@@ -110,6 +110,19 @@ body {
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
+  .lang-switch {
+  font-size: 13px;
+}
+
+.lang-switch a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.lang-switch a:hover {
+  opacity: 1;
+}
 </style>
 </head>
 
@@ -118,14 +131,22 @@ body {
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
-  <div class="menu">
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <div class="menu" id="menuLinks">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
     <a href="serbia.html">Serbia</a>
     <a href="courier.html">Courier</a>
     <a href="roadmap.html">Roadmap</a>
     <a href="contact.html">Join</a>
+
+    <div class="lang-switch">
+      <a href="index.html">EN</a> |
+      <a href="index-tr.html">TR</a> |
+      <a href="index-sr.html">SR</a>
+    </div>
   </div>
 </div>
 
