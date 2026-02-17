@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ZÆTHR — Serbia Base</title>
+<title>ZÆTHR Serbia Launch — Market Entry Strategy</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,8 +13,8 @@
 }
 
 body {
-  background: #0a0a0a;
-  color: white;
+  background: #000;
+  color: #fff;
   font-family: Arial, sans-serif;
   padding-top: 90px;
 }
@@ -57,77 +57,49 @@ body {
   opacity: 1;
 }
 
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    position: absolute;
-    top: 55px;
-    right: 15px;
-    background: black;
-    padding: 15px;
-    border: 1px solid #222;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .hamburger {
-    display: block;
-  }
-  .menu.show {
-    display: flex;
-  }
-}
-
-/* HERO */
-.hero {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px;
+/* TITLE */
+.title {
   text-align: center;
+  margin-top: 40px;
 }
 
-.hero-title {
+.title h1 {
   font-size: 2.6em;
   letter-spacing: 4px;
 }
 
-.hero-sub {
-  font-size: 1.1em;
+.title p {
   opacity: 0.8;
   margin-top: 10px;
 }
 
 /* CONTENT */
 .section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
 }
 
-.section h2 {
-  font-size: 1.6em;
-  letter-spacing: 2px;
+.block {
+  margin-bottom: 35px;
+  border-left: 2px solid #222;
+  padding-left: 18px;
 }
 
-.section p {
-  margin-top: 12px;
+.block h2 {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+}
+
+.block p {
   opacity: 0.85;
   line-height: 1.6;
 }
 
-/* FOOTER */
-.footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 0.8em;
-  opacity: 0.5;
+.lang {
+  font-size: 0.9em;
+  opacity: 0.6;
+  margin-top: 6px;
 }
 </style>
 </head>
@@ -137,10 +109,7 @@ body {
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
-
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-  <div class="menu" id="menuLinks">
+  <div class="menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="vision.html">Vision</a>
@@ -151,61 +120,53 @@ body {
   </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1 class="hero-title">SERBIA BASE</h1>
-  <p class="hero-sub">Strategic Launch Territory for ZÆTHR Global Expansion</p>
+<!-- TITLE -->
+<div class="title">
+  <h1>SERBIA MARKET ENTRY</h1>
+  <p>Why Serbia is our global launch base</p>
+  <p class="lang">Sırbistan neden küresel lansman merkezimiz</p>
+  <p class="lang">Zašto je Srbija naša globalna baza lansiranja</p>
 </div>
 
 <!-- CONTENT -->
 <div class="section">
-  <h2>WHY SERBIA</h2>
-  <p>
-    Serbia offers a unique strategic position between Eastern Europe, the Balkans, and the EU. 
-    It provides low operational costs, strong logistics infrastructure, and favorable business regulations.
-    ZÆTHR is launching its first operational node in Serbia as the foundation for global expansion.
-  </p>
+
+  <div class="block">
+    <h2>Founder Relocation Strategy</h2>
+    <p>The founder relocated to Serbia to establish the first operational base of ZÆTHR in Europe.</p>
+    <p class="lang">Kurucu, ZÆTHR’ın Avrupa’daki ilk operasyon merkezini kurmak için Sırbistan’a taşınmıştır.</p>
+    <p class="lang">Osnivač se preselio u Srbiju radi uspostavljanja prve operativne baze ZÆTHR-a u Evropi.</p>
+  </div>
+
+  <div class="block">
+    <h2>Why Serbia?</h2>
+    <p>Serbia offers strategic location, growing tech ecosystem, affordable operational costs, and access to EU and Balkan markets.</p>
+    <p class="lang">Sırbistan stratejik konumu, büyüyen teknoloji ekosistemi, düşük operasyon maliyetleri ve AB ile Balkan pazarına erişim sunar.</p>
+    <p class="lang">Srbija nudi stratešku lokaciju, rastući tehnološki ekosistem, niske operativne troškove i pristup EU i balkanskim tržištima.</p>
+  </div>
+
+  <div class="block">
+    <h2>Local Operations Plan</h2>
+    <p>Initial operations focus on courier onboarding, AI logistics testing, and pilot delivery zones in Belgrade.</p>
+    <p class="lang">İlk operasyonlar kurye ağı kurulumu, AI lojistik testleri ve Belgrad pilot teslimat bölgelerine odaklanır.</p>
+    <p class="lang">Početne operacije fokusirane su na mrežu kurira, AI logističko testiranje i pilot zone dostave u Beogradu.</p>
+  </div>
+
+  <div class="block">
+    <h2>Legal & Corporate Structure</h2>
+    <p>ZÆTHR is designed as a scalable global corporate structure with decentralized regional entities.</p>
+    <p class="lang">ZÆTHR, merkeziyetsiz bölgesel yapılarla ölçeklenebilir küresel bir şirket yapısı olarak tasarlanmıştır.</p>
+    <p class="lang">ZÆTHR je dizajniran kao skalabilna globalna korporativna struktura sa decentralizovanim regionalnim entitetima.</p>
+  </div>
+
+  <div class="block">
+    <h2>Long-Term Vision in Serbia</h2>
+    <p>Serbia will become the R&D hub for AI logistics and the gateway to European expansion.</p>
+    <p class="lang">Sırbistan, AI lojistik için Ar-Ge merkezi ve Avrupa genişlemesi için kapı olacaktır.</p>
+    <p class="lang">Srbija će postati R&D centar za AI logistiku i kapija za širenje u Evropu.</p>
+  </div>
+
 </div>
-
-<div class="section">
-  <h2>LEGAL & OPERATIONAL STRUCTURE</h2>
-  <p>
-    The company is being established as a Serbian registered entity with decentralized contractor operations.
-    Initial operations will focus on courier services, logistics testing, and AI-based route optimization development.
-  </p>
-</div>
-
-<div class="section">
-  <h2>EU ACCESS STRATEGY</h2>
-  <p>
-    Serbia acts as a gateway to the European Union market. 
-    ZÆTHR will use Serbia as a testing ground before expanding into EU pilot cities with regulatory-compliant models.
-  </p>
-</div>
-
-<div class="section">
-  <h2>LONG-TERM ROLE</h2>
-  <p>
-    Serbia will remain the primary Balkan hub for ZÆTHR operations, engineering talent recruitment, 
-    and decentralized logistics infrastructure development.
-  </p>
-</div>
-
-<div class="footer">
-  ZÆTHR Platform © 2026 — Founder: Murat EFE
-</div>
-
-<script>
-function toggleMenu() {
-  document.getElementById("menuLinks").classList.toggle("show");
-}
-
-document.querySelectorAll("#menuLinks a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("menuLinks").classList.remove("show");
-  });
-});
-</script>
 
 </body>
 </html>
