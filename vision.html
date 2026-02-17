@@ -1,172 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ZÆTHR Vision — Global AI Logistics Network</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Zaethr Vision</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="style.css">
 
-body {
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  padding-top: 90px;
-}
+  <style>
+    body {
+      background: #0b0f19;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: black;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #222;
-  z-index: 9999;
-}
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.logo {
-  font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 18px;
-}
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
 
-.menu {
-  display: flex;
-  gap: 20px;
-}
+    .lang-switch a {
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+      opacity: 0.6;
+      text-decoration: none;
+    }
 
-.menu a {
-  text-decoration: none;
-  color: white;
-  opacity: 0.7;
-  font-size: 14px;
-  transition: 0.2s;
-}
+    .lang-switch a.active {
+      opacity: 1;
+      font-weight: bold;
+    }
 
-.menu a:hover {
-  opacity: 1;
-}
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+    }
 
-/* TITLE */
-.title {
-  text-align: center;
-  margin-top: 40px;
-}
+    h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
 
-.title h1 {
-  font-size: 2.7em;
-  letter-spacing: 4px;
-}
-
-.title p {
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-.lang {
-  font-size: 0.9em;
-  opacity: 0.6;
-}
-
-/* CONTENT */
-.section {
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-
-.block {
-  margin-bottom: 35px;
-  border-left: 2px solid #222;
-  padding-left: 18px;
-}
-
-.block h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.block p {
-  opacity: 0.85;
-  line-height: 1.7;
-  margin-bottom: 6px;
-}
-</style>
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="logo">ZÆTHR</div>
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="serbia.html">Serbia</a>
-    <a href="courier.html">Courier</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a href="contact.html">Join</a>
+<header>
+  <div class="logo">ZAETHR</div>
+
+  <!-- LANGUAGE SWITCH -->
+  <div class="lang-switch">
+    <a onclick="setLang('en')" id="btn-en">EN</a>
+    <a onclick="setLang('tr')" id="btn-tr">TR</a>
+    <a onclick="setLang('sr')" id="btn-sr">SR</a>
   </div>
+</header>
+
+<div class="container">
+  <h1 data-lang="vision_title"></h1>
+  <p data-lang="vision_p1"></p>
+  <p data-lang="vision_p2"></p>
+  <p data-lang="vision_p3"></p>
 </div>
 
-<!-- TITLE -->
-<div class="title">
-  <h1>OUR VISION</h1>
-  <p>Building the world’s first AI-driven global delivery infrastructure</p>
-  <p class="lang">Dünyanın ilk yapay zekâ destekli küresel teslimat altyapısını kurmak</p>
-  <p class="lang">Izgradnja prve globalne infrastrukture za isporuku vođene veštačkom inteligencijom</p>
-</div>
+<!-- LANGUAGE DATA -->
+<script>
+const translations = {
+  en: {
+    vision_title: "Our Vision",
+    vision_p1: "Zaethr is building the next-generation AI-powered startup ecosystem.",
+    vision_p2: "Our vision is to create a borderless digital infrastructure that connects entrepreneurs, investors, and talent globally.",
+    vision_p3: "We believe AI will become the backbone of business, governance, and human creativity. Zaethr aims to lead this transformation."
+  },
 
-<!-- CONTENT -->
-<div class="section">
+  tr: {
+    vision_title: "Vizyonumuz",
+    vision_p1: "Zaethr, yeni nesil yapay zekâ destekli startup ekosistemini inşa ediyor.",
+    vision_p2: "Vizyonumuz, girişimcileri, yatırımcıları ve yetenekleri küresel ölçekte birleştiren sınırsız bir dijital altyapı oluşturmaktır.",
+    vision_p3: "Yapay zekânın iş dünyası, yönetim ve insan yaratıcılığının temel altyapısı olacağına inanıyoruz. Zaethr bu dönüşüme liderlik etmeyi hedefliyor."
+  },
 
-  <div class="block">
-    <h2>Global Infrastructure Vision</h2>
-    <p>ZÆTHR aims to become a decentralized global delivery network powered by artificial intelligence.</p>
-    <p class="lang">ZÆTHR, yapay zekâ destekli merkeziyetsiz küresel bir teslimat ağı olmayı hedefler.</p>
-    <p class="lang">ZÆTHR ima cilj da postane decentralizovana globalna mreža dostave pokretana AI tehnologijom.</p>
-  </div>
+  sr: {
+    vision_title: "Naša Vizija",
+    vision_p1: "Zaethr gradi ekosistem startapa nove generacije uz podršku veštačke inteligencije.",
+    vision_p2: "Naša vizija je da stvorimo digitalnu infrastrukturu bez granica koja povezuje preduzetnike, investitore i talente širom sveta.",
+    vision_p3: "Verujemo da će veštačka inteligencija postati osnova poslovanja, upravljanja i ljudske kreativnosti. Zaethr ima cilj da predvodi ovu transformaciju."
+  }
+};
 
-  <div class="block">
-    <h2>Beyond Traditional Logistics</h2>
-    <p>We envision a system that automates courier routing, demand prediction, and real-time optimization.</p>
-    <p class="lang">Kurye yönlendirme, talep tahmini ve gerçek zamanlı optimizasyonu otomatikleştiren bir sistem hedefliyoruz.</p>
-    <p class="lang">Zamišljamo sistem koji automatizuje rute kurira, predviđanje potražnje i optimizaciju u realnom vremenu.</p>
-  </div>
+// Load language
+function setLang(lang) {
+  localStorage.setItem("siteLang", lang);
+  applyLang(lang);
+}
 
-  <div class="block">
-    <h2>AI-Powered Economy</h2>
-    <p>ZÆTHR is designed to integrate AI, blockchain, and global workforce platforms into one unified ecosystem.</p>
-    <p class="lang">ZÆTHR, yapay zekâ, blockchain ve küresel iş gücü platformlarını tek bir ekosistemde birleştirmek için tasarlanmıştır.</p>
-    <p class="lang">ZÆTHR je dizajniran da integriše AI, blockchain i globalne radne platforme u jedan ekosistem.</p>
-  </div>
+function applyLang(lang) {
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    const key = el.getAttribute("data-lang");
+    el.innerText = translations[lang][key];
+  });
 
-  <div class="block">
-    <h2>Human & Machine Collaboration</h2>
-    <p>The future of logistics is human-AI collaboration, where couriers and AI systems operate as a single organism.</p>
-    <p class="lang">Lojistiğin geleceği, kurye ve yapay zekânın tek bir organizma gibi çalıştığı insan-AI iş birliğidir.</p>
-    <p class="lang">Budućnost logistike je saradnja ljudi i AI sistema koji funkcionišu kao jedan organizam.</p>
-  </div>
+  document.querySelectorAll(".lang-switch a").forEach(a => a.classList.remove("active"));
+  document.getElementById("btn-" + lang).classList.add("active");
+}
 
-  <div class="block">
-    <h2>Long-Term Civilization Impact</h2>
-    <p>ZÆTHR is not just a company. It is a foundational infrastructure layer for the next digital civilization.</p>
-    <p class="lang">ZÆTHR sadece bir şirket değil, yeni dijital medeniyet için temel bir altyapı katmanıdır.</p>
-    <p class="lang">ZÆTHR nije samo kompanija, već osnovni infrastrukturni sloj za novu digitalnu civilizaciju.</p>
-  </div>
-
-</div>
+// Default language
+const defaultLang = localStorage.getItem("siteLang") || "en";
+applyLang(defaultLang);
+</script>
 
 </body>
 </html>
