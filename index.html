@@ -17,7 +17,7 @@ body {
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
-  padding-top: 100px; /* NAVBAR ALTINA BOŞLUK */
+  padding-top: 100px;
   overflow-x: hidden;
 }
 
@@ -87,7 +87,11 @@ body {
   }
 }
 
-/* STARS */
+.menu.show {
+  display: flex !important;
+}
+
+/* STARS BACKGROUND */
 .stars {
   position: fixed;
   width: 100%;
@@ -97,47 +101,30 @@ body {
   opacity: 0.15;
   z-index: -1;
 }
-  .stars2 {
-  opacity: 0.05;
+
+.stars2 {
   animation-duration: 120s;
+  opacity: 0.05;
 }
-  .stars {
-  display: none;
-}
-  .hero {
+
+/* HERO */
+.hero {
   margin-top: 60px;
-  text-align: center;
 }
+
 .hero-title {
   font-size: 3em;
   letter-spacing: 4px;
 }
+
 .hero-sub {
   font-size: 1.2em;
   opacity: 0.8;
 }
+
 .hero-founder {
   font-size: 1em;
   opacity: 0.6;
-}
-.stars, .stars2 {
-  display: none !important;
-}
-  
-@keyframes move {
-  from {background-position: 0 0;}
-  to {background-position: 10000px 5000px;}
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: 4px;
-}
-
-p {
-  font-size: 1.2em;
-  opacity: 0.85;
-  margin-top: 10px;
 }
 
 .manifest {
@@ -148,13 +135,19 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
-  .menu.show {
-  display: flex !important;
+
+@keyframes move {
+  from {background-position: 0 0;}
+  to {background-position: 10000px 5000px;}
 }
 </style>
 </head>
 
 <body>
+
+<!-- STARS -->
+<div class="stars"></div>
+<div class="stars stars2"></div>
 
 <!-- NAVBAR -->
 <div class="navbar">
@@ -179,7 +172,6 @@ p {
 </div>
 
 <div class="manifest">
-
 We are building a decentralized global delivery empire.<br>
 A system beyond borders, beyond corporations, beyond governments.<br>
 Zaethr is not a company. It is an infrastructure for the next civilization.
@@ -197,10 +189,6 @@ document.querySelectorAll("#menuLinks a").forEach(link => {
   });
 });
 </script>
-body {
-  background: #0a0a0a !important;
-  color: #fff !important;
-}
-  
+
 </body>
 </html>
