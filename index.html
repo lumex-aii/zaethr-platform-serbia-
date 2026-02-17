@@ -123,6 +123,22 @@ body {
 .lang-switch a:hover {
   opacity: 1;
 }
+  .mobile-lang {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .lang-switch {
+    display: none;
+  }
+  .mobile-lang {
+    display: flex;
+  }
+}
 </style>
 </head>
 
@@ -131,6 +147,12 @@ body {
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
+
+  <div class="lang-switch mobile-lang">
+  <a href="#">EN</a>
+  <a href="#">TR</a>
+  <a href="#">SR</a>
+</div>
 
   <div class="lang-switch">
     <a href="#">EN</a> | 
