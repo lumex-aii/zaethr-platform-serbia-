@@ -1,134 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Zaethr Vision</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- GLOBAL CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    body {
-      background: #0b0f19;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      padding: 20px;
-      border-bottom: 1px solid #222;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-    }
-
-    .lang-switch a {
-      color: white;
-      margin-left: 10px;
-      cursor: pointer;
-      opacity: 0.6;
-      text-decoration: none;
-    }
-
-    .lang-switch a.active {
-      opacity: 1;
-      font-weight: bold;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-      opacity: 0.85;
-    }
-  </style>
-</head>
-
+<html>
 <body>
 
-<header>
-  <div class="logo">ZAETHR</div>
+<header> <!-- NAVBAR --> </header>
 
-  <!-- LANGUAGE SWITCH -->
-  <div class="lang-switch">
-    <a onclick="setLang('en')" id="btn-en">EN</a>
-    <a onclick="setLang('tr')" id="btn-tr">TR</a>
-    <a onclick="setLang('sr')" id="btn-sr">SR</a>
-  </div>
-</header>
-
-<div class="container">
+<div class="hero">
   <h1 data-lang="vision_title"></h1>
-  <p data-lang="vision_p1"></p>
-  <p data-lang="vision_p2"></p>
-  <p data-lang="vision_p3"></p>
+  <p>Building the world's first AI-native logistics & business ecosystem.</p>
 </div>
 
-<!-- LANGUAGE DATA -->
-<script>
-const translations = {
-  en: {
-    vision_title: "Our Vision",
-    vision_p1: "Zaethr is building the next-generation AI-powered startup ecosystem.",
-    vision_p2: "Our vision is to create a borderless digital infrastructure that connects entrepreneurs, investors, and talent globally.",
-    vision_p3: "We believe AI will become the backbone of business, governance, and human creativity. Zaethr aims to lead this transformation."
-  },
-
-  tr: {
-    vision_title: "Vizyonumuz",
-    vision_p1: "Zaethr, yeni nesil yapay zekâ destekli startup ekosistemini inşa ediyor.",
-    vision_p2: "Vizyonumuz, girişimcileri, yatırımcıları ve yetenekleri küresel ölçekte birleştiren sınırsız bir dijital altyapı oluşturmaktır.",
-    vision_p3: "Yapay zekânın iş dünyası, yönetim ve insan yaratıcılığının temel altyapısı olacağına inanıyoruz. Zaethr bu dönüşüme liderlik etmeyi hedefliyor."
-  },
-
-  sr: {
-    vision_title: "Naša Vizija",
-    vision_p1: "Zaethr gradi ekosistem startapa nove generacije uz podršku veštačke inteligencije.",
-    vision_p2: "Naša vizija je da stvorimo digitalnu infrastrukturu bez granica koja povezuje preduzetnike, investitore i talente širom sveta.",
-    vision_p3: "Verujemo da će veštačka inteligencija postati osnova poslovanja, upravljanja i ljudske kreativnosti. Zaethr ima cilj da predvodi ovu transformaciju."
-  }
-};
-
-// Load language
-function setLang(lang) {
-  localStorage.setItem("siteLang", lang);
-  applyLang(lang);
-}
-
-function applyLang(lang) {
-  document.querySelectorAll("[data-lang]").forEach(el => {
-    const key = el.getAttribute("data-lang");
-    el.innerText = translations[lang][key];
-  });
-
-  document.querySelectorAll(".lang-switch a").forEach(a => a.classList.remove("active"));
-  document.getElementById("btn-" + lang).classList.add("active");
-}
-
-// Default language
-const defaultLang = localStorage.getItem("siteLang") || "en";
-applyLang(defaultLang);
-  <script src="lang.js"></script>
-</script>
-
+<script src="lang.js"></script>
 </body>
 </html>
