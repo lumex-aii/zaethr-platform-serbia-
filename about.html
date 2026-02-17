@@ -1,175 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — ZÆTHR PLATFORM</title>
+<title>About ZÆTHR Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Orbitron", sans-serif;
-      background: black;
-      color: white;
-      overflow-x: hidden;
-    }
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 100px;
+}
 
-    /* HEADER */
-    header {
-      padding: 20px 40px;
-      background: rgba(0,0,0,0.8);
-      border-bottom: 1px solid #111;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 9999;
+}
 
-    header a {
-      color: white;
-      text-decoration: none;
-      margin-right: 20px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
 
-    header a:hover {
-      opacity: 1;
-    }
+.menu {
+  display: flex;
+  gap: 20px;
+}
 
-    /* HERO */
-    .about-hero {
-      padding: 120px 20px;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-    }
+.menu a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
+}
 
-    .about-hero h1 {
-      font-size: 48px;
-      letter-spacing: 2px;
-    }
+.menu a:hover {
+  opacity: 1;
+}
 
-    .about-hero p {
-      color: #aaa;
-      font-size: 18px;
-      margin-top: 20px;
-    }
+/* HERO */
+.hero {
+  margin-top: 40px;
+}
 
-    /* SECTIONS */
-    .section {
-      max-width: 1000px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
+.hero h1 {
+  font-size: 2.8em;
+  letter-spacing: 3px;
+}
 
-    .section h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      border-left: 4px solid white;
-      padding-left: 12px;
-    }
+.section {
+  max-width: 800px;
+  margin: 40px auto;
+  font-size: 1.1em;
+  line-height: 1.6;
+  opacity: 0.9;
+}
 
-    .section p {
-      color: #bbb;
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    /* FOUNDER */
-    .founder-box {
-      border: 1px solid #111;
-      padding: 30px;
-      background: rgba(255,255,255,0.02);
-      margin-top: 20px;
-    }
-
-    .founder-box h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #444;
-      border-top: 1px solid #111;
-      margin-top: 100px;
-    }
-  </style>
+.lang {
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 0.95em;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="vision.html">Vision</a>
-  <a href="contact.html">Contact</a>
-</header>
-
-<div class="about-hero">
-  <h1>ZÆTHR PLATFORM</h1>
-  <p>Global Delivery & AI Business System</p>
-</div>
-
-<div class="section">
-  <h2>Who We Are</h2>
-  <p>
-    ZÆTHR PLATFORM is a next-generation global delivery and AI-driven business infrastructure project.
-    Our mission is to build decentralized logistics, automation systems, and digital business networks
-    that operate across borders with minimal friction.
-  </p>
-</div>
-
-<div class="section">
-  <h2>Our Mission</h2>
-  <p>
-    To create a scalable global system combining courier logistics, AI automation, and digital platforms
-    that empower individuals and businesses worldwide.  
-    Serbia is the first launch phase of this global expansion.
-  </p>
-</div>
-<div class="hero">
-  <h1>About ZÆTHR</h1>
-  <p>Zaethr Platform Hakkında</p>
-</div>
-
-<div class="manifest">
-  <p>ZÆTHR is a technology-driven global delivery and AI ecosystem.</p>
-  <p>ZÆTHR teknoloji odaklı küresel teslimat ve yapay zekâ ekosistemidir.</p>
-
-  <p>Our mission is to build borderless logistics infrastructure.</p>
-  <p>Misyonumuz sınır tanımayan lojistik altyapısı kurmaktır.</p>
-
-  <p>Founded by Murat EFE during Serbia launch phase.</p>
-  <p>Sırbistan lansman aşamasında Murat EFE tarafından kurulmuştur.</p>
-</div>
-<div class="section">
-  <h2>Vision</h2>
-  <p>
-    We envision a future where global delivery, AI systems, and digital business platforms merge into a single
-    intelligent network. ZÆTHR aims to become a decentralized global operating layer for logistics and digital services.
-  </p>
-</div>
-
-<div class="section">
-  <h2>Founder</h2>
-  <div class="founder-box">
-    <h3>Murat EFE</h3>
-    <p>
-      Entrepreneur, system architect, and founder of ZÆTHR PLATFORM.  
-      Currently launching the Serbia phase while building global expansion architecture for AI-driven logistics and digital platforms.
-    </p>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">ZÆTHR</div>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Join</a>
   </div>
 </div>
 
-<footer>
-  © 2026 ZÆTHR PLATFORM — All Rights Reserved
-</footer>
+<!-- HERO -->
+<div class="hero">
+  <h1>About ZÆTHR Platform</h1>
+  <p class="lang">ZÆTHR Platform Hakkında</p>
+  <p class="lang">O ZÆTHR Platformi</p>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <p>ZÆTHR is a next-generation global delivery and AI-driven business infrastructure platform.</p>
+  <p class="lang">ZÆTHR yeni nesil küresel teslimat ve yapay zekâ destekli iş altyapısı platformudur.</p>
+  <p class="lang">ZÆTHR je platforma za globalnu isporuku i poslovnu infrastrukturu vođenu veštačkom inteligencijom.</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <p>Our goal is to build a decentralized logistics and workforce ecosystem without borders.</p>
+  <p class="lang">Amacımız sınır tanımayan merkeziyetsiz lojistik ve iş gücü ekosistemi kurmaktır.</p>
+  <p class="lang">Naš cilj je izgradnja decentralizovanog logističkog i radnog ekosistema bez granica.</p>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <p>ZÆTHR is designed as a platform, not just a company.</p>
+  <p class="lang">ZÆTHR sadece bir şirket değil, bir platform olarak tasarlanmıştır.</p>
+  <p class="lang">ZÆTHR je dizajniran kao platforma, a ne samo kompanija.</p>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <p>Founded by Murat EFE during the Serbia launch phase, ZÆTHR aims to expand globally.</p>
+  <p class="lang">Murat EFE tarafından Sırbistan lansman aşamasında kurulan ZÆTHR küresel genişlemeyi hedefler.</p>
+  <p class="lang">Osnovao Murat EFE tokom faze lansiranja u Srbiji, ZÆTHR ima cilj globalnog širenja.</p>
+</div>
 
 </body>
 </html>
