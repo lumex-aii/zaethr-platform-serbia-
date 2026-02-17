@@ -13,7 +13,7 @@
 }
 
 body {
-  background: black;
+  background: #0a0a0a;
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
@@ -25,8 +25,9 @@ body {
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: black;
+  background: rgba(0,0,0,0.95);
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
@@ -41,17 +42,17 @@ body {
   font-size: 18px;
 }
 
-/* MENU */
 .menu {
   display: flex;
-  gap: 20px;
+  gap: 18px;
 }
 
 .menu a {
-  color: white;
   text-decoration: none;
-  font-size: 14px;
+  color: white;
   opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
 }
 
 .menu a:hover {
@@ -59,17 +60,22 @@ body {
 }
 
 /* LANGUAGE SWITCH */
-.lang-switch a {
-  color: white;
-  text-decoration: none;
+.lang-switch {
   font-size: 13px;
-  opacity: 0.6;
-  margin: 0 5px;
-  cursor: pointer;
+  margin-left: 15px;
 }
 
-.lang-switch a:hover {
+.lang-switch a {
+  cursor: pointer;
+  color: white;
+  opacity: 0.5;
+  margin: 0 3px;
+  text-decoration: none;
+}
+
+.lang-switch a.active {
   opacity: 1;
+  font-weight: bold;
 }
 
 /* HAMBURGER */
@@ -79,12 +85,12 @@ body {
   cursor: pointer;
 }
 
-/* MOBILE */
+/* MOBILE MENU */
 @media (max-width: 768px) {
   .menu {
     display: none;
     position: absolute;
-    top: 55px;
+    top: 60px;
     right: 15px;
     background: black;
     padding: 15px;
@@ -96,14 +102,6 @@ body {
 
   .hamburger {
     display: block;
-  }
-
-  .lang-switch {
-    display: none;
-  }
-
-  .menu.show {
-    display: flex;
   }
 }
 
@@ -120,21 +118,44 @@ body {
 .hero-sub {
   font-size: 1.2em;
   opacity: 0.8;
+  margin-top: 10px;
 }
 
 .hero-founder {
   font-size: 1em;
-  opacity: 0.6;
+  opacity: 0.5;
+  margin-top: 5px;
 }
 
-/* MANIFEST */
-.manifest {
-  margin-top: 40px;
-  font-size: 0.95em;
-  opacity: 0.7;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
+/* SECTIONS */
+.section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.section p {
+  font-size: 1.05em;
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 80px;
+  font-size: 13px;
+  opacity: 0.4;
+  padding-bottom: 20px;
+}
+
+/* MOBILE MENU SHOW */
+.menu.show {
+  display: flex !important;
 }
 </style>
 </head>
@@ -145,99 +166,71 @@ body {
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
 
-  <!-- LANGUAGE -->
-  <div class="lang-switch">
-    <a onclick="setLang('en')">EN</a> |
-    <a onclick="setLang('tr')">TR</a> |
-    <a onclick="setLang('sr')">SR</a>
-  </div>
-
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 
   <div class="menu" id="menuLinks">
-    <a data-key="home">Home</a>
-    <a data-key="about">About</a>
-    <a data-key="serbia">Serbia</a>
-    <a data-key="courier">Courier</a>
-    <a data-key="roadmap">Roadmap</a>
-    <a data-key="join">Join</a>
+    <a href="index.html" data-lang="nav_home">Home</a>
+    <a href="about.html" data-lang="nav_about">About</a>
+    <a href="vision.html" data-lang="nav_vision">Vision</a>
+    <a href="serbia.html" data-lang="nav_serbia">Serbia</a>
+    <a href="courier.html" data-lang="nav_courier">Courier</a>
+    <a href="roadmap.html" data-lang="nav_roadmap">Roadmap</a>
+    <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+    <!-- LANGUAGE BUTTONS -->
+    <div class="lang-switch">
+      <a onclick="setLang('en')" id="btn-en" class="lang-btn">EN</a> |
+      <a onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</a> |
+      <a onclick="setLang('sr')" id="btn-sr" class="lang-btn">SR</a>
+    </div>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <h1 class="hero-title" data-key="title">ZÆTHR PLATFORM</h1>
-  <p class="hero-sub" data-key="subtitle">Global Delivery & AI Business System</p>
-  <p class="hero-founder" data-key="founder">Serbia Launch Phase — Founder: Murat EFE</p>
+  <h1 class="hero-title" data-lang="hero_title">ZÆTHR PLATFORM</h1>
+  <p class="hero-sub" data-lang="hero_sub">Global Delivery & AI Business System</p>
+  <p class="hero-founder" data-lang="hero_founder">Serbia Launch Phase — Founder: Murat EFE</p>
 </div>
 
-<!-- MANIFEST -->
-<div class="manifest" data-key="manifest">
-We are building a decentralized global delivery empire.<br>
-A system beyond borders, beyond corporations, beyond governments.<br>
-Zaethr is not a company. It is an infrastructure for the next civilization.
+<!-- ABOUT PREVIEW -->
+<div class="section">
+  <h2 data-lang="about_title">About ZÆTHR</h2>
+  <p data-lang="about_text"></p>
 </div>
 
+<!-- VISION PREVIEW -->
+<div class="section">
+  <h2 data-lang="vision_title">Our Vision</h2>
+  <p data-lang="vision_text"></p>
+</div>
+
+<!-- ROADMAP PREVIEW -->
+<div class="section">
+  <h2 data-lang="roadmap_title">Roadmap</h2>
+  <p data-lang="roadmap_text"></p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  ZÆTHR Platform © 2026 — Founder: Murat EFE
+</div>
+
+<!-- MENU SCRIPT -->
 <script>
-// HAMBURGER
 function toggleMenu() {
   document.getElementById("menuLinks").classList.toggle("show");
 }
 
-// LANGUAGE DATA
-const translations = {
-  en: {
-    home: "Home",
-    about: "About",
-    serbia: "Serbia",
-    courier: "Courier",
-    roadmap: "Roadmap",
-    join: "Join",
-    title: "ZÆTHR PLATFORM",
-    subtitle: "Global Delivery & AI Business System",
-    founder: "Serbia Launch Phase — Founder: Murat EFE",
-    manifest: "We are building a decentralized global delivery empire.<br>A system beyond borders, beyond corporations, beyond governments.<br>Zaethr is not a company. It is an infrastructure for the next civilization."
-  },
-  tr: {
-    home: "Ana Sayfa",
-    about: "Hakkımızda",
-    serbia: "Sırbistan",
-    courier: "Kurye Sistemi",
-    roadmap: "Yol Haritası",
-    join: "Katıl",
-    title: "ZÆTHR PLATFORMU",
-    subtitle: "Global Teslimat ve Yapay Zeka İş Sistemi",
-    founder: "Sırbistan Lansmanı — Kurucu: Murat EFE",
-    manifest: "Merkeziyetsiz küresel bir teslimat imparatorluğu kuruyoruz.<br>Sınırların, şirketlerin ve hükümetlerin ötesinde bir sistem.<br>Zaethr bir şirket değil. Gelecek medeniyet için bir altyapıdır."
-  },
-  sr: {
-    home: "Početna",
-    about: "O Nama",
-    serbia: "Srbija",
-    courier: "Kurir Sistem",
-    roadmap: "Plan",
-    join: "Pridruži se",
-    title: "ZÆTHR PLATFORMA",
-    subtitle: "Globalni sistem dostave i AI biznisa",
-    founder: "Lansiranje u Srbiji — Osnivač: Murat EFE",
-    manifest: "Gradimo decentralizovano globalno carstvo dostave.<br>Sistem izvan granica, korporacija i vlada.<br>Zaethr nije kompanija. To je infrastruktura za sledeću civilizaciju."
-  }
-};
-
-// SET LANGUAGE
-function setLang(lang) {
-  localStorage.setItem("lang", lang);
-  document.querySelectorAll("[data-key]").forEach(el => {
-    const key = el.getAttribute("data-key");
-    el.innerHTML = translations[lang][key];
+document.querySelectorAll("#menuLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuLinks").classList.remove("show");
   });
-}
-
-// AUTO LOAD LANGUAGE
-const savedLang = localStorage.getItem("lang") || "en";
-setLang(savedLang);
-  <script src="lang.js"></script>
+});
 </script>
+
+<!-- LANGUAGE SYSTEM -->
+<script src="lang.js"></script>
 
 </body>
 </html>
