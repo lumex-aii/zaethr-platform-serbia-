@@ -122,6 +122,9 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
+  .menu.show {
+  display: flex !important;
+}
 </style>
 </head>
 
@@ -158,11 +161,7 @@ Zaethr is not a company. It is an infrastructure for the next civilization.
 <script>
 function toggleMenu() {
   const menu = document.getElementById("menuLinks");
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
+  menu.classList.toggle("show");
 }
 </script>
 
