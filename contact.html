@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ZÆTHR — Contact</title>
+<title>Join ZÆTHR Platform</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,11 +13,11 @@
 }
 
 body {
-  background: #0a0a0a;
-  color: white;
+  background: #000;
+  color: #fff;
   font-family: Arial, sans-serif;
-  padding-top: 90px;
   text-align: center;
+  padding-top: 100px;
 }
 
 /* NAVBAR */
@@ -58,101 +58,48 @@ body {
   opacity: 1;
 }
 
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* MOBILE MENU */
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    position: absolute;
-    top: 55px;
-    right: 15px;
-    background: black;
-    padding: 15px;
-    border: 1px solid #222;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .hamburger {
-    display: block;
-  }
-  .menu.show {
-    display: flex;
-  }
-}
-
 /* HERO */
 .hero {
+  margin-top: 40px;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  letter-spacing: 3px;
+}
+
+.section {
   max-width: 800px;
-  margin: auto;
-  padding: 30px;
-}
-
-.hero-title {
-  font-size: 2.5em;
-  letter-spacing: 4px;
-}
-
-.hero-sub {
-  font-size: 1.1em;
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-/* CONTACT FORM */
-.contact-box {
-  max-width: 600px;
   margin: 40px auto;
-  background: rgba(255,255,255,0.03);
+  font-size: 1.1em;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.lang {
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 0.95em;
+}
+
+/* CONTACT BOX */
+.contact-box {
+  margin-top: 40px;
   padding: 25px;
   border: 1px solid #222;
   border-radius: 12px;
+  display: inline-block;
 }
 
-.contact-box input,
-.contact-box textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  background: #111;
-  border: 1px solid #222;
-  color: white;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.contact-box textarea {
-  resize: none;
-  height: 120px;
-}
-
-.contact-box button {
-  margin-top: 15px;
-  padding: 12px;
-  width: 100%;
-  background: white;
-  color: black;
-  border: none;
-  border-radius: 6px;
+.contact-box a {
+  color: #00d4ff;
+  font-size: 1.2em;
+  text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
-.contact-box button:hover {
-  background: #ccc;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: 50px;
-  font-size: 0.8em;
-  opacity: 0.5;
+.contact-box a:hover {
+  text-decoration: underline;
 }
 </style>
 </head>
@@ -162,10 +109,7 @@ body {
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
-
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-  <div class="menu" id="menuLinks">
+  <div class="menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="vision.html">Vision</a>
@@ -178,36 +122,30 @@ body {
 
 <!-- HERO -->
 <div class="hero">
-  <h1 class="hero-title">CONTACT ZÆTHR</h1>
-  <p class="hero-sub">Join the network. Build the future. Become infrastructure.</p>
+  <h1>Join ZÆTHR Platform</h1>
+  <p class="lang">ZÆTHR Platformuna Katıl</p>
+  <p class="lang">Pridružite se ZÆTHR Platformi</p>
 </div>
 
-<!-- CONTACT FORM -->
+<!-- SECTION 1 -->
+<div class="section">
+  <p>ZÆTHR is open to founders, couriers, developers, investors, and visionaries.</p>
+  <p class="lang">ZÆTHR kuruculara, kuryelere, geliştiricilere, yatırımcılara ve vizyonerlere açıktır.</p>
+  <p class="lang">ZÆTHR je otvoren za osnivače, kurire, programere, investitore i vizionare.</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <p>If you want to be part of a global decentralized delivery and AI business system, contact us.</p>
+  <p class="lang">Küresel merkeziyetsiz teslimat ve yapay zekâ iş sisteminin parçası olmak istiyorsanız bize ulaşın.</p>
+  <p class="lang">Ako želite biti deo globalnog decentralizovanog sistema isporuke i AI poslovanja, kontaktirajte nas.</p>
+</div>
+
+<!-- CONTACT EMAIL -->
 <div class="contact-box">
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <input type="text" placeholder="Country / City">
-    <textarea placeholder="Message or Collaboration Proposal"></textarea>
-    <button type="submit">SEND MESSAGE</button>
-  </form>
+  <p>Contact Email</p>
+  <a href="mailto:zaethr.io@gmail.com">zaethr.io@gmail.com</a>
 </div>
-
-<div class="footer">
-  ZÆTHR Platform © 2026 — Founder: Murat EFE
-</div>
-
-<script>
-function toggleMenu() {
-  document.getElementById("menuLinks").classList.toggle("show");
-}
-
-document.querySelectorAll("#menuLinks a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("menuLinks").classList.remove("show");
-  });
-});
-</script>
 
 </body>
 </html>
