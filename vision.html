@@ -1,251 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>ZÆTHR Vision — Global AI Logistics Network</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZÆTHR Platform | Vision</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
 }
 
-/* BACKGROUND */
 body {
   background: #000;
   color: #fff;
-  min-height: 100vh;
-}
-
-/* STAR BACKGROUND */
-.stars {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: -1;
-}
-
-.stars::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image:
-    radial-gradient(2px 2px at 20% 30%, #fff, transparent),
-    radial-gradient(1px 1px at 70% 80%, #fff, transparent),
-    radial-gradient(1px 1px at 40% 60%, #fff, transparent),
-    radial-gradient(2px 2px at 90% 10%, #fff, transparent);
-  opacity: 0.2;
+  font-family: Arial, sans-serif;
+  padding-top: 90px;
 }
 
 /* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: rgba(0,0,0,0.7);
+  background: black;
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid #222;
-  z-index: 10;
+  z-index: 9999;
 }
 
 .logo {
-  font-size: 20px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  font-size: 18px;
 }
 
-.nav-links a {
-  margin-left: 20px;
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
   text-decoration: none;
-  color: #ccc;
+  color: white;
+  opacity: 0.7;
   font-size: 14px;
+  transition: 0.2s;
 }
 
-.nav-links a:hover {
-  color: #fff;
+.menu a:hover {
+  opacity: 1;
 }
 
-/* HERO */
-.hero {
-  padding: 140px 20px 60px;
+/* TITLE */
+.title {
   text-align: center;
+  margin-top: 40px;
 }
 
-.hero h1 {
-  font-size: 42px;
-  font-weight: 800;
+.title h1 {
+  font-size: 2.7em;
   letter-spacing: 4px;
 }
 
-.hero p {
-  margin-top: 12px;
-  color: #aaa;
-  font-size: 18px;
+.title p {
+  opacity: 0.8;
+  margin-top: 10px;
 }
 
-/* SECTION */
+.lang {
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+/* CONTENT */
 .section {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
 }
 
-.section h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  border-left: 4px solid #fff;
-  padding-left: 10px;
+.block {
+  margin-bottom: 35px;
+  border-left: 2px solid #222;
+  padding-left: 18px;
 }
 
-.section p {
-  color: #bbb;
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-/* ROADMAP */
-.roadmap {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.roadmap-box {
-  border: 1px solid #222;
-  padding: 20px;
-  background: rgba(255,255,255,0.02);
-}
-
-.roadmap-box h3 {
-  font-size: 18px;
+.block h2 {
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.roadmap-box p {
-  font-size: 14px;
-  color: #999;
+.block p {
+  opacity: 0.85;
+  line-height: 1.7;
+  margin-bottom: 6px;
 }
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: #555;
-  border-top: 1px solid #222;
-  margin-top: 50px;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
-
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
-  <div class="nav-links">
+  <div class="menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Join</a>
   </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
+<!-- TITLE -->
+<div class="title">
   <h1>OUR VISION</h1>
-  <p>Building the future of global AI-driven logistics & business systems</p>
+  <p>Building the world’s first AI-driven global delivery infrastructure</p>
+  <p class="lang">Dünyanın ilk yapay zekâ destekli küresel teslimat altyapısını kurmak</p>
+  <p class="lang">Izgradnja prve globalne infrastrukture za isporuku vođene veštačkom inteligencijom</p>
 </div>
 
-  <div class="hero">
-  <h1>Vision</h1>
-  <p>Vizyon</p>
-</div>
-
-<div class="manifest">
-  <p>To create the world's first decentralized delivery network.</p>
-  <p>Dünyanın ilk merkeziyetsiz teslimat ağını kurmak.</p>
-
-  <p>Integrating AI, logistics, and autonomous workforce.</p>
-  <p>Yapay zekâ, lojistik ve otonom iş gücünü entegre etmek.</p>
-</div>
-
-<!-- SECTION 1 -->
+<!-- CONTENT -->
 <div class="section">
-  <h2>Global Mission</h2>
-  <p>
-    ZÆTHR Platform is designed as a next-generation digital infrastructure 
-    combining AI automation, global delivery systems, and decentralized business tools.
-    Our mission is to build a scalable system that empowers individuals and companies 
-    to operate globally without borders.
-  </p>
-</div>
 
-<!-- SECTION 2 -->
-<div class="section">
-  <h2>Serbia Launch Strategy</h2>
-  <p>
-    Serbia is selected as the initial launch region due to its strategic position, 
-    flexible business environment, and access to the European market. 
-    The platform will begin with delivery services and expand into AI-powered 
-    operational systems for logistics, finance, and workforce management.
-  </p>
-</div>
-
-<!-- ROADMAP -->
-<div class="section">
-  <h2>Platform Roadmap</h2>
-
-  <div class="roadmap">
-    <div class="roadmap-box">
-      <h3>Phase 1 — Local Delivery Network</h3>
-      <p>Motor courier system, Wolt & local partners integration, basic automation.</p>
-    </div>
-
-    <div class="roadmap-box">
-      <h3>Phase 2 — AI Business System</h3>
-      <p>AI order routing, smart dispatch, predictive delivery optimization.</p>
-    </div>
-
-    <div class="roadmap-box">
-      <h3>Phase 3 — Global Expansion</h3>
-      <p>European cities rollout, multi-language, multi-currency business model.</p>
-    </div>
-
-    <div class="roadmap-box">
-      <h3>Phase 4 — Decentralized Platform</h3>
-      <p>Tokenized ecosystem, global freelancer & delivery marketplace.</p>
-    </div>
+  <div class="block">
+    <h2>Global Infrastructure Vision</h2>
+    <p>ZÆTHR aims to become a decentralized global delivery network powered by artificial intelligence.</p>
+    <p class="lang">ZÆTHR, yapay zekâ destekli merkeziyetsiz küresel bir teslimat ağı olmayı hedefler.</p>
+    <p class="lang">ZÆTHR ima cilj da postane decentralizovana globalna mreža dostave pokretana AI tehnologijom.</p>
   </div>
-</div>
 
-<!-- SECTION 3 -->
-<div class="section">
-  <h2>Founder Vision</h2>
-  <p>
-    Founded by Murat EFE, ZÆTHR Platform represents a long-term vision to merge
-    real-world logistics with AI-driven digital infrastructure. The goal is to create 
-    a self-sustaining global system that scales from individual couriers to global enterprises.
-  </p>
-</div>
+  <div class="block">
+    <h2>Beyond Traditional Logistics</h2>
+    <p>We envision a system that automates courier routing, demand prediction, and real-time optimization.</p>
+    <p class="lang">Kurye yönlendirme, talep tahmini ve gerçek zamanlı optimizasyonu otomatikleştiren bir sistem hedefliyoruz.</p>
+    <p class="lang">Zamišljamo sistem koji automatizuje rute kurira, predviđanje potražnje i optimizaciju u realnom vremenu.</p>
+  </div>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 ZÆTHR Platform — Visionary Global AI & Delivery Infrastructure
-</footer>
+  <div class="block">
+    <h2>AI-Powered Economy</h2>
+    <p>ZÆTHR is designed to integrate AI, blockchain, and global workforce platforms into one unified ecosystem.</p>
+    <p class="lang">ZÆTHR, yapay zekâ, blockchain ve küresel iş gücü platformlarını tek bir ekosistemde birleştirmek için tasarlanmıştır.</p>
+    <p class="lang">ZÆTHR je dizajniran da integriše AI, blockchain i globalne radne platforme u jedan ekosistem.</p>
+  </div>
+
+  <div class="block">
+    <h2>Human & Machine Collaboration</h2>
+    <p>The future of logistics is human-AI collaboration, where couriers and AI systems operate as a single organism.</p>
+    <p class="lang">Lojistiğin geleceği, kurye ve yapay zekânın tek bir organizma gibi çalıştığı insan-AI iş birliğidir.</p>
+    <p class="lang">Budućnost logistike je saradnja ljudi i AI sistema koji funkcionišu kao jedan organizam.</p>
+  </div>
+
+  <div class="block">
+    <h2>Long-Term Civilization Impact</h2>
+    <p>ZÆTHR is not just a company. It is a foundational infrastructure layer for the next digital civilization.</p>
+    <p class="lang">ZÆTHR sadece bir şirket değil, yeni dijital medeniyet için temel bir altyapı katmanıdır.</p>
+    <p class="lang">ZÆTHR nije samo kompanija, već osnovni infrastrukturni sloj za novu digitalnu civilizaciju.</p>
+  </div>
+
+</div>
 
 </body>
 </html>
