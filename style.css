@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #05070c;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 90px;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  z-index: 9999;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: #000;
+    padding: 15px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+.menu.show {
+  display: flex !important;
+}
+
+/* LANGUAGE SWITCH */
+.lang-switch {
+  font-size: 13px;
+}
+
+.lang-switch a {
+  cursor: pointer;
+  color: white;
+  margin-left: 8px;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  opacity: 1;
+}
+
+/* HERO */
+.hero {
+  margin-top: 40px;
+}
+
+.hero-title {
+  font-size: 3em;
+  letter-spacing: 4px;
+}
+
+.hero-sub {
+  font-size: 1.2em;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.hero-founder {
+  font-size: 1em;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+
+/* CONTENT */
+.section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.section h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.section p {
+  font-size: 1em;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 80px;
+  padding: 20px;
+  font-size: 0.8em;
+  opacity: 0.5;
+}
