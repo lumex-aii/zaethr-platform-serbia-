@@ -1,18 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>Contact - ZÆTHR</title>
 <meta charset="UTF-8">
-<title>Contact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
 </head>
+
 <body>
 
-<header> <!-- NAVBAR BURAYA --> </header>
+<div class="navbar">
+  <div class="logo">ZÆTHR</div>
 
-<div class="hero">
-  <h1 data-lang="contact_title"></h1>
-  <p>Email: <a href="mailto:zaethr.io@gmail.com">zaethr.io@gmail.com</a></p>
+  <div class="menu" id="menuLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="lang-switch">
+    <a onclick="setLang('en')">EN</a>
+    <a onclick="setLang('tr')">TR</a>
+    <a onclick="setLang('sr')">SR</a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 
-<script src="lang.js"></script>
+<div class="section">
+  <h2 data-lang="contact"></h2>
+  <p data-lang="contactText"></p>
+  <p><b>Email:</b> zaethr.io@gmail.com</p>
+</div>
+
+<footer>© 2026 ZÆTHR Global AI Startup</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
+setLang("en");
+</script>
+
 </body>
 </html>
