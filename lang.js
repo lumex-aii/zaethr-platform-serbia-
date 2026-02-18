@@ -1,133 +1,65 @@
-// ==========================
-// ZÆTHR GLOBAL LANGUAGE SYSTEM
-// EN / TR / SR AUTO SITE TRANSLATION
-// ==========================
+let currentLang = "en";
 
-// DEFAULT LANGUAGE
-let currentLang = localStorage.getItem("lang") || "en";
-
-// TEXT DATABASE
-const texts = {
+const translations = {
   en: {
-    nav_home: "Home",
-    nav_about: "About",
-    nav_vision: "Vision",
-    nav_serbia: "Serbia",
-    nav_courier: "Courier",
-    nav_roadmap: "Roadmap",
-    nav_contact: "Contact",
-
-    hero_title: "ZÆTHR PLATFORM",
-    hero_sub: "Global Delivery & AI Business System",
-    hero_founder: "Serbia Launch Phase — Founder: Murat EFE",
-
-    about_title: "About ZÆTHR",
-    about_text: "ZÆTHR is a global AI-powered logistics and infrastructure startup building the next decentralized delivery empire.",
-
-    vision_title: "Our Vision",
-    vision_text: "To build a borderless AI-driven delivery infrastructure beyond corporations and governments.",
-
-    serbia_title: "Serbia Expansion",
-    serbia_text: "Serbia is our European launch hub for legal, operational, and AI-driven logistics expansion.",
-
-    courier_title: "Courier Network",
-    courier_text: "We build a decentralized courier workforce powered by AI optimization and smart routing.",
-
-    roadmap_title: "Roadmap",
-    roadmap_text: "Phase 1: Serbia | Phase 2: Balkans | Phase 3: Europe | Phase 4: Global AI Network",
-
-    contact_title: "Contact & Join",
-    contact_text: "Join ZÆTHR or contact founder directly:",
+    title: "ZÆTHR PLATFORM",
+    sub: "Global Delivery & AI Business System",
+    founder: "Serbia Launch Phase — Founder: Murat EFE",
+    about: "About Us",
+    aboutText: "ZÆTHR is a next-generation decentralized logistics and AI-driven global business platform.",
+    vision: "Our Vision",
+    visionText: "We aim to build the first borderless delivery and AI enterprise infrastructure.",
+    serbia: "Serbia Expansion",
+    serbiaText: "Serbia is our gateway to the European Union and global expansion strategy.",
+    courier: "Courier Network",
+    courierText: "A decentralized courier workforce powered by blockchain governance.",
+    roadmap: "Roadmap",
+    roadmapText: "Phase 1: Serbia launch. Phase 2: EU expansion. Phase 3: Global AI logistics.",
+    contact: "Contact",
+    contactText: "Contact us at zaethr.io@gmail.com"
   },
 
   tr: {
-    nav_home: "Ana Sayfa",
-    nav_about: "Hakkımızda",
-    nav_vision: "Vizyon",
-    nav_serbia: "Sırbistan",
-    nav_courier: "Kurye",
-    nav_roadmap: "Yol Haritası",
-    nav_contact: "İletişim",
-
-    hero_title: "ZÆTHR PLATFORMU",
-    hero_sub: "Küresel Teslimat & Yapay Zeka İş Sistemi",
-    hero_founder: "Sırbistan Lansman Aşaması — Kurucu: Murat EFE",
-
-    about_title: "ZÆTHR Hakkında",
-    about_text: "ZÆTHR, yapay zeka destekli küresel lojistik ve altyapı startup'ıdır. Yeni nesil merkeziyetsiz teslimat imparatorluğu kuruyoruz.",
-
-    vision_title: "Vizyonumuz",
-    vision_text: "Şirketler ve hükümetler ötesinde sınır tanımayan yapay zeka destekli teslimat altyapısı kurmak.",
-
-    serbia_title: "Sırbistan Genişleme",
-    serbia_text: "Sırbistan Avrupa lansman merkezimizdir. Hukuki, operasyonel ve AI lojistik merkezi olarak seçildi.",
-
-    courier_title: "Kurye Ağı",
-    courier_text: "Yapay zeka optimizasyonlu merkeziyetsiz kurye iş gücü ağı kuruyoruz.",
-
-    roadmap_title: "Yol Haritası",
-    roadmap_text: "Faz 1: Sırbistan | Faz 2: Balkanlar | Faz 3: Avrupa | Faz 4: Küresel AI Ağı",
-
-    contact_title: "İletişim & Katılım",
-    contact_text: "ZÆTHR ekibine katıl veya kurucu ile doğrudan iletişime geç:",
+    title: "ZÆTHR PLATFORMU",
+    sub: "Küresel Teslimat ve Yapay Zeka İş Sistemi",
+    founder: "Sırbistan Lansman Aşaması — Kurucu: Murat EFE",
+    about: "Hakkımızda",
+    aboutText: "ZÆTHR yeni nesil merkeziyetsiz lojistik ve yapay zeka tabanlı küresel iş platformudur.",
+    vision: "Vizyonumuz",
+    visionText: "Sınırları olmayan teslimat ve yapay zeka altyapısını inşa etmeyi hedefliyoruz.",
+    serbia: "Sırbistan Genişleme",
+    serbiaText: "Sırbistan Avrupa Birliği ve küresel büyüme stratejimizin kapısıdır.",
+    courier: "Kurye Ağı",
+    courierText: "Blockchain yönetişimi ile çalışan merkeziyetsiz kurye ağı.",
+    roadmap: "Yol Haritası",
+    roadmapText: "Faz 1: Sırbistan. Faz 2: AB genişleme. Faz 3: Küresel AI lojistik.",
+    contact: "İletişim",
+    contactText: "İletişim: zaethr.io@gmail.com"
   },
 
   sr: {
-    nav_home: "Početna",
-    nav_about: "O nama",
-    nav_vision: "Vizija",
-    nav_serbia: "Srbija",
-    nav_courier: "Kurir",
-    nav_roadmap: "Plan",
-    nav_contact: "Kontakt",
-
-    hero_title: "ZÆTHR PLATFORMA",
-    hero_sub: "Globalni sistem dostave i veštačke inteligencije",
-    hero_founder: "Faza lansiranja Srbija — Osnivač: Murat EFE",
-
-    about_title: "O ZÆTHR-u",
-    about_text: "ZÆTHR je globalni startup za logistiku i AI infrastrukturu koji gradi decentralizovanu imperiju dostave.",
-
-    vision_title: "Naša Vizija",
-    vision_text: "Izgraditi globalnu AI infrastrukturu dostave bez granica i korporacija.",
-
-    serbia_title: "Ekspanzija u Srbiji",
-    serbia_text: "Srbija je naš evropski lansirni centar za pravnu i operativnu AI logistiku.",
-
-    courier_title: "Kurirska Mreža",
-    courier_text: "Gradimo decentralizovanu kurirsku mrežu uz AI optimizaciju ruta.",
-
-    roadmap_title: "Plan Razvoja",
-    roadmap_text: "Faza 1: Srbija | Faza 2: Balkan | Faza 3: Evropa | Faza 4: Globalna AI Mreža",
-
-    contact_title: "Kontakt & Pridruži se",
-    contact_text: "Pridruži se ZÆTHR timu ili kontaktiraj osnivača direktno:",
+    title: "ZÆTHR PLATFORMA",
+    sub: "Globalni Sistem Dostave i Veštačke Inteligencije",
+    founder: "Faza lansiranja u Srbiji — Osnivač: Murat EFE",
+    about: "O Nama",
+    aboutText: "ZÆTHR je decentralizovana logistička i AI poslovna platforma nove generacije.",
+    vision: "Naša Vizija",
+    visionText: "Cilj nam je da izgradimo infrastrukturu bez granica za AI i dostavu.",
+    serbia: "Ekspanzija Srbija",
+    serbiaText: "Srbija je naša kapija ka EU i globalnom rastu.",
+    courier: "Kurirska Mreža",
+    courierText: "Decentralizovana kurirska mreža upravljana blockchainom.",
+    roadmap: "Mapa Puta",
+    roadmapText: "Faza 1: Srbija. Faza 2: EU. Faza 3: Globalna AI logistika.",
+    contact: "Kontakt",
+    contactText: "Kontakt: zaethr.io@gmail.com"
   }
 };
 
-// APPLY LANGUAGE TO PAGE
-function applyLang() {
-  document.querySelectorAll("[data-lang]").forEach(el => {
-    const key = el.getAttribute("data-lang");
-    if (texts[currentLang][key]) {
-      el.innerHTML = texts[currentLang][key];
-    }
-  });
-
-  // Highlight active language button
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.classList.remove("active");
-  });
-  const activeBtn = document.getElementById("btn-" + currentLang);
-  if (activeBtn) activeBtn.classList.add("active");
-}
-
-// CHANGE LANGUAGE
 function setLang(lang) {
   currentLang = lang;
-  localStorage.setItem("lang", lang);
-  applyLang();
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    const key = el.getAttribute("data-lang");
+    el.innerText = translations[lang][key];
+  });
 }
-
-// INIT ON LOAD
-document.addEventListener("DOMContentLoaded", applyLang);
