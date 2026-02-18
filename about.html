@@ -1,211 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>About — ZÆTHR Platform</title>
+<title>About - ZÆTHR</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #0a0a0a;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding-top: 90px;
-}
-
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.95);
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #222;
-  z-index: 9999;
-}
-
-.logo {
-  font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 18px;
-}
-
-.menu {
-  display: flex;
-  gap: 18px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: white;
-  opacity: 0.7;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.menu a:hover { opacity: 1; }
-
-/* LANGUAGE SWITCH */
-.lang-switch {
-  font-size: 13px;
-  margin-left: 15px;
-}
-
-.lang-switch a {
-  cursor: pointer;
-  color: white;
-  opacity: 0.5;
-  margin: 0 3px;
-  text-decoration: none;
-}
-
-.lang-switch a.active {
-  opacity: 1;
-  font-weight: bold;
-}
-
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 15px;
-    background: black;
-    padding: 15px;
-    border: 1px solid #222;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .hamburger { display: block; }
-}
-
-/* PAGE CONTENT */
-.hero {
-  margin-top: 50px;
-}
-
-.hero h1 {
-  font-size: 2.8em;
-  letter-spacing: 3px;
-}
-
-.hero p {
-  opacity: 0.7;
-  margin-top: 10px;
-  font-size: 1.1em;
-}
-
-.section {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 20px;
-  text-align: left;
-}
-
-.section h2 {
-  font-size: 1.8em;
-  margin-bottom: 12px;
-}
-
-.section p {
-  font-size: 1.05em;
-  opacity: 0.75;
-  line-height: 1.6;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: 80px;
-  font-size: 13px;
-  opacity: 0.4;
-  padding-bottom: 20px;
-}
-
-.menu.show { display: flex !important; }
-</style>
+<link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">ZÆTHR</div>
 
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-
   <div class="menu" id="menuLinks">
-    <a href="index.html" data-lang="nav_home">Home</a>
-    <a href="about.html" data-lang="nav_about">About</a>
-    <a href="vision.html" data-lang="nav_vision">Vision</a>
-    <a href="serbia.html" data-lang="nav_serbia">Serbia</a>
-    <a href="courier.html" data-lang="nav_courier">Courier</a>
-    <a href="roadmap.html" data-lang="nav_roadmap">Roadmap</a>
-    <a href="contact.html" data-lang="nav_contact">Contact</a>
-
-    <div class="lang-switch">
-      <a onclick="setLang('en')" id="btn-en">EN</a> |
-      <a onclick="setLang('tr')" id="btn-tr">TR</a> |
-      <a onclick="setLang('sr')" id="btn-sr">SR</a>
-    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Contact</a>
   </div>
-</div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1 data-lang="about_page_title">About ZÆTHR</h1>
-  <p data-lang="about_page_sub">A next-generation AI-driven global delivery infrastructure company.</p>
-</div>
+  <div class="lang-switch">
+    <a onclick="setLang('en')">EN</a>
+    <a onclick="setLang('tr')">TR</a>
+    <a onclick="setLang('sr')">SR</a>
+  </div>
 
-<!-- SECTIONS -->
-<div class="section">
-  <h2 data-lang="about_mission_title">Our Mission</h2>
-  <p data-lang="about_mission_text"></p>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 
 <div class="section">
-  <h2 data-lang="about_company_title">Company Overview</h2>
-  <p data-lang="about_company_text"></p>
+  <h2 data-lang="about"></h2>
+  <p data-lang="aboutText"></p>
 </div>
 
-<div class="section">
-  <h2 data-lang="about_founder_title">Founder Statement</h2>
-  <p data-lang="about_founder_text"></p>
-</div>
+<footer>© 2026 ZÆTHR Global AI Startup</footer>
 
-<!-- FOOTER -->
-<div class="footer">
-  ZÆTHR Platform © 2026 — Founder: Murat EFE
-</div>
-
-<!-- MENU SCRIPT -->
 <script>
 function toggleMenu() {
   document.getElementById("menuLinks").classList.toggle("show");
 }
-document.querySelectorAll("#menuLinks a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("menuLinks").classList.remove("show");
-  });
-});
+setLang("en");
 </script>
-
-<!-- LANGUAGE SYSTEM -->
-<script src="lang.js"></script>
 
 </body>
 </html>
