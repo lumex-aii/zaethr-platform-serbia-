@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<title>Courier Network - ZÆTHR</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
+</head>
+
 <body>
 
-<header> <!-- NAVBAR --> </header>
+<div class="navbar">
+  <div class="logo">ZÆTHR</div>
 
-<div class="hero">
-  <h1 data-lang="courier_title"></h1>
-  <p>Global decentralized AI courier network system.</p>
+  <div class="menu" id="menuLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="serbia.html">Serbia</a>
+    <a href="courier.html">Courier</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="lang-switch">
+    <a onclick="setLang('en')">EN</a>
+    <a onclick="setLang('tr')">TR</a>
+    <a onclick="setLang('sr')">SR</a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 
-<script src="lang.js"></script>
+<div class="section">
+  <h2 data-lang="courier"></h2>
+  <p data-lang="courierText"></p>
+</div>
+
+<footer>© 2026 ZÆTHR Global AI Startup</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
+setLang("en");
+</script>
+
 </body>
 </html>
