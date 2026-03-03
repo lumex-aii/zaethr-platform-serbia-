@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAETHR Restaurant Panel</title>
+<link rel="stylesheet" href="stil.css">
+</head>
+
+<body>
+
+<h1 style="text-align:center;">ZAETHR Restaurant Panel</h1>
+
+<div class="container">
+
+    <div class="products">
+        <h2>Ürünler</h2>
+        <button onclick="addItem('Burger', 8)">Burger - €8</button>
+        <button onclick="addItem('Pizza', 10)">Pizza - €10</button>
+        <button onclick="addItem('Kola', 3)">Kola - €3</button>
+    </div>
+
+    <div class="cart">
+        <h2>Sepet</h2>
+        <ul id="cart-list"></ul>
+        <h3>Toplam: €<span id="total">0</span></h3>
+        <button onclick="saveOrder()">Siparişi Kaydet</button>
+    </div>
+
+</div>
+
+<script>
+let total = 0;
+let cartList = document.getElementById("cart-list");
+let totalDisplay = document.getElementById("total");
+
+function addItem(name, price) {
+    let li = document.createElement("li");
+    li.textContent = name + " - €" + price;
+    cartList.appendChild(li);
+
+    total += price;
+    totalDisplay.textContent = total;
+}
+
+function saveOrder() {
+    alert("Sipariş kaydedildi! Toplam: €" + total);
+    cartList.innerHTML = "";
+    total = 0;
+    totalDisplay.textContent = total;
+}
+</script>
+
+</body>
+</html>
