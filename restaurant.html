@@ -28,6 +28,8 @@ body {
 
     <div class="cart">
         <h2>Sepet</h2>
+        <h2>Bugünkü Siparişler</h2>
+        <ul id="order-history"></ul>
         <ul id="cart-list"></ul>
         <h3>Toplam: €<span id="total">0</span></h3>
         <h3>Günlük Ciro: €<span id="dailyRevenue"></span></h3>
@@ -38,6 +40,18 @@ body {
 </div>
 
 <script>
+function addOrderToList(order) {
+    let li = document.createElement("li");
+    li.textContent = order.time + " - €" + order.total;
+    orderHistory.appendChild(li);
+}
+let orderHistory = document.getElementById("order-history");
+
+// Daha önceki siparişleri yükle
+let savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
+savedOrders.forEach(order => {
+    addOrderToList(order);
+});
 let total = 0;
 let cart = [];
 
@@ -78,6 +92,16 @@ function saveOrder() {
     localStorage.setItem("dailyRevenue", revenue);
 
     updateDailyRevenue();
+
+    let order = {
+        time: new Date().toLocaleTimeString(),
+        total: total
+    };
+
+    savedOrders.push(order);
+    localStorage.setItem("orders", JSON.stringify(savedOrders));
+
+    addOrderToList(order);
 
     alert("Sipariş kaydedildi!");
 
