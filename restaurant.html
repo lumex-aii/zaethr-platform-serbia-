@@ -80,6 +80,19 @@ function saveOrder() {
     total = 0;
     totalDisplay.textContent = total;
 }
+    let dailyRevenueDisplay = document.getElementById("dailyRevenue");
+
+function updateDailyRevenue() {
+    dailyRevenueDisplay.textContent = localStorage.getItem("dailyRevenue");
+}
+
+function resetDay() {
+    localStorage.setItem("dailyRevenue", 0);
+    updateDailyRevenue();
+    alert("Günlük ciro sıfırlandı.");
+}
+
+updateDailyRevenue();
 </script>
 
 </body>
