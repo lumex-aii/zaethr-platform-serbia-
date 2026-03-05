@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ZAETHR Menu</title>
+<link rel="stylesheet" href="stil.css">
+</head>
+
+<body>
+
+<h1>Restaurant Menu</h1>
+
+<h2>Products</h2>
+
+<div id="products"></div>
+
+<h2>Cart</h2>
+
+<ul id="cart"></ul>
+
+<h3>Total: €<span id="total">0</span></h3>
+
+<button onclick="sendOrder()">Send Order</button>
+
+<script>
+
+let products = [
+ {name:"Burger", price:8},
+ {name:"Pizza", price:10},
+ {name:"Kola", price:3}
+];
+
+let cart = [];
+
+function renderProducts(){
+
+ let container = document.getElementById("products");
+ container.innerHTML="";
+
+ products.forEach((p,i)=>{
+
+  let btn = document.createElement("button");
+  btn.innerText = p.name + " - €" + p.price;
+
+  btn.onclick = ()=>{
+   cart.push(p);
+   renderCart();
+  };
+
+  container.appendChild(btn);
+
+ });
+
+}
+
+function renderCart(){
+
+ let cartList = document.getElementById("cart");
+ cartList.innerHTML="";
+
+ let total = 0;
+
+ cart.forEach(p=>{
+  let li = document.createElement("li");
+  li.innerText = p.name + " €" + p.price;
+  cartList.appendChild(li);
+
+  total += p.price;
+ });
+
+ document.getElementById("total").innerText = total;
+
+}
+
+function sendOrder(){
+
+ if(cart.length==0){
+  alert("Cart empty");
+  return;
+ }
+
+ let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+ let total = cart.reduce((t,p)=>t+p.price,0);
+
+ orders.push({
+  time: new Date().toLocaleTimeString(),
+  total: total
+ });
+
+ localStorage.setItem("orders", JSON.stringify(orders));
+
+ alert("Order sent!");
+
+ cart=[];
+ renderCart();
+
+}
+
+renderProducts();
+
+</script>
+
+</body>
+</html>
