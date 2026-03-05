@@ -20,7 +20,41 @@
 
 <h3>Total: €<span id="total">0</span></h3>
 
-<button onclick="sendOrder()">Siparişi Gönder</button>
+<button onclick="sendOrder()">Siparişi Gönder
+
+ function sendOrder(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+if(cart.length == 0){
+alert("Sepet boş");
+return;
+}
+
+let total = 0;
+
+cart.forEach(item=>{
+total += item.price;
+});
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let newOrder = {
+time: new Date().toLocaleTimeString(),
+total: total,
+items: cart
+};
+
+orders.push(newOrder);
+
+localStorage.setItem("orders", JSON.stringify(orders));
+
+localStorage.removeItem("cart");
+
+alert("Sipariş gönderildi");
+}
+
+</button>
 
 <script>
 
