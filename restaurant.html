@@ -16,6 +16,14 @@ body {
 <body>
 
 <h1 style="text-align:center;">ZAETHR Restaurant Panel</h1>
+    <h3>Ürün Ekle</h3>
+
+<input id="productName" placeholder="Ürün adı">
+<input id="productPrice" placeholder="Fiyat">
+
+<button onclick="addProduct()">Ürün Ekle</button>
+
+<div id="productList"></div>
 
 <div class="container">
 
@@ -122,6 +130,50 @@ function resetDay() {
     updateDailyRevenue();
     alert("Günlük ciro sıfırlandı.");
 }
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+function addProduct(){
+
+let name = document.getElementById("productName").value
+let price = document.getElementById("productPrice").value
+
+products.push({name,price})
+
+localStorage.setItem("products", JSON.stringify(products))
+
+renderProducts()
+
+}
+
+function renderProducts(){
+
+let list = document.getElementById("productList")
+list.innerHTML=""
+
+products.forEach((p,index)=>{
+
+list.innerHTML += `
+<div>
+${p.name} - ${p.price}€
+<button onclick="deleteProduct(${index})">Sil</button>
+</div>
+`
+
+})
+
+}
+
+function deleteProduct(index){
+
+products.splice(index,1)
+
+localStorage.setItem("products", JSON.stringify(products))
+
+renderProducts()
+
+}
+
+renderProducts()
 </script>
 
 </body>
