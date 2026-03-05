@@ -9,6 +9,37 @@
 <body>
 
 <h1>Restaurant Menu</h1>
+ function sendOrder(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+if(cart.length == 0){
+alert("Sepet boş");
+return;
+}
+
+let total = 0;
+
+cart.forEach(item=>{
+total += item.price;
+});
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let newOrder = {
+time: new Date().toLocaleTimeString(),
+total: total,
+items: cart
+};
+
+orders.push(newOrder);
+
+localStorage.setItem("orders", JSON.stringify(orders));
+
+localStorage.removeItem("cart");
+
+alert("Sipariş gönderildi");
+}
 
 <h2>Products</h2>
 
