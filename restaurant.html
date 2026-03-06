@@ -48,13 +48,15 @@ body {
 </div>
 
 <script>
-function addOrderToList(order,index) {
+function addOrderToList(order,index){
 
 let li = document.createElement("li");
 
-let itemsText = order.items
-.map(i => i.name + " €" + i.price)
-.join(" , ");
+let itemsText = "";
+
+if(order.items){
+itemsText = order.items.map(i => i.name + " €" + i.price).join(", ");
+}
 
 li.innerHTML = `
 <b>${order.time}</b> - €${order.total}<br>
