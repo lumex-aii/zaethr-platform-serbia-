@@ -60,6 +60,27 @@ function renderCart(){
 
  let total = 0;
 
+ function sendOrder(){
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let order = {
+time: new Date().toLocaleTimeString(),
+items: cart,
+total: total
+};
+
+orders.push(order);
+
+localStorage.setItem("orders", JSON.stringify(orders));
+
+cart = [];
+total = 0;
+
+alert("Sipariş gönderildi");
+
+}
+
  cart.forEach(p=>{
   let li = document.createElement("li");
   li.innerText = p.name + " €" + p.price;
