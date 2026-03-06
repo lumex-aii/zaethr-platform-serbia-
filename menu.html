@@ -165,33 +165,24 @@ document.getElementById("total").innerText = total;
 
 function sendOrder(){
 
-if(cart.length==0){
-alert("Sepet boş");
-return;
-}
-
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-let total = cart.reduce((t,p)=>t+p.price,0);
-
 let order = {
-
 id: Date.now(),
 table: Math.floor(Math.random()*20)+1,
 time: new Date().toLocaleTimeString(),
 items: cart,
 total: total
-
 };
 
 orders.push(order);
 
 localStorage.setItem("orders", JSON.stringify(orders));
 
-alert("Sipariş gönderildi");
+cart = [];
+total = 0;
 
-cart=[];
-renderCart();
+alert("Sipariş gönderildi");
 
 }
 
