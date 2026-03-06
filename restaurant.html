@@ -48,21 +48,30 @@ body {
 </div>
 
 <script>
-function addOrderToList(order) {
-    let li = document.createElement("li");
-    li.innerHTML = `
-<b>${o.time}</b> - €${o.total}<br>
-Ürünler: ${o.items.map(i => i.name).join(", ")}
+function addOrderToList(order,index) {
+
+let li = document.createElement("li");
+
+let itemsText = order.items
+.map(i => i.name + " €" + i.price)
+.join(" , ");
+
+li.innerHTML = `
+<b>${order.time}</b> - €${order.total}<br>
+Ürünler: ${itemsText}<br>
 <button onclick="approveOrder(${index})">Siparişi Onayla</button>
+<hr>
 `;
-    orderHistory.appendChild(li);
+
+orderHistory.appendChild(li);
+
 }
 let orderHistory = document.getElementById("order-history");
 
 // Daha önceki siparişleri yükle
 let savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
-savedOrders.forEach(order => {
-    addOrderToList(order);
+savedOrders.forEach((order,index) => {
+addOrderToList(order,index);
 });
 let total = 0;
 let cart = [];
