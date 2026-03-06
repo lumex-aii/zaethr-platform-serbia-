@@ -54,15 +54,24 @@ function addOrderToList(order,index){
 let li = document.createElement("li");
 
 li.innerHTML = `
-<b>${order.time}</b> - €${order.total}
+${order.time} - €${order.total}
 
 <button onclick="approveOrder(${index})">Siparişi Onayla</button>
-<button onclick="showDetails(${index})">Detaylar</button>
 
-<div id="details-${index}" style="display:none;margin-top:5px;">
-Sipariş No: ${order.id || "-"}<br>
-Masa No: ${order.table || "-"}<br>
-Ürünler: ${order.items ? order.items.map(i => i.name + " €" + i.price).join(", ") : "-"}
+<button onclick="toggleDetails(${index})">Detaylar</button>
+
+<div id="details-${index}" style="display:none; margin-top:10px">
+
+Sipariş No: ${order.id}
+
+<br>
+
+Masa No: ${order.table}
+
+<br>
+
+Ürünler: ${order.items.join(", ")}
+
 </div>
 
 <hr>
@@ -152,14 +161,35 @@ function resetDay() {
 
 function addProduct(){
 
-let name = document.getElementById("productName").value
-let price = document.getElementById("productPrice").value
+let name = document.getElementById("product-name").value;
+let price = document.getElementById("product-price").value;
 
-products.push({name,price})
+let menu = JSON.parse(localStorage.getItem("menu")) || [];
 
-localStorage.setItem("products", JSON.stringify(products))
+menu.push({
+name:name,
+price:price
+});
 
-renderProducts()
+localStorage.setItem("menu",JSON.stringify(menu));
+
+renderMenu();
+
+}
+
+function toggleDetails(index){
+
+let div = document.getElementById("details-"+index);
+
+if(div.style.display === "none"){
+
+div.style.display = "block";
+
+}else{
+
+div.style.display = "none";
+
+}
 
 }
 
