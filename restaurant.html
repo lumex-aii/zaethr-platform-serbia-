@@ -50,7 +50,11 @@ body {
 <script>
 function addOrderToList(order) {
     let li = document.createElement("li");
-    li.textContent = order.time + " - €" + order.total;
+    li.innerHTML = `
+<b>${o.time}</b> - €${o.total}<br>
+Ürünler: ${o.items.map(i => i.name).join(", ")}
+<button onclick="approveOrder(${index})">Siparişi Onayla</button>
+`;
     orderHistory.appendChild(li);
 }
 let orderHistory = document.getElementById("order-history");
@@ -174,6 +178,20 @@ renderProducts()
 }
 
 renderProducts()
+
+function approveOrder(index){
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+orders.splice(index,1);
+
+localStorage.setItem("orders", JSON.stringify(orders));
+
+loadOrders();
+
+alert("Sipariş onaylandı");
+
+}
 
 </script>
 
