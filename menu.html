@@ -60,16 +60,13 @@ function renderCart(){
 
  let total = 0;
 
- function sendOrder(){
+function sendOrder(){
 
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-let orderNumber = Date.now(); // sipariş numarası
-let tableNumber = Math.floor(Math.random()*20)+1; // geçici masa
-
 let order = {
-id: orderNumber,
-table: tableNumber,
+id: Date.now(),
+table: Math.floor(Math.random()*20)+1,
 time: new Date().toLocaleTimeString(),
 items: cart,
 total: total
