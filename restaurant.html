@@ -50,19 +50,21 @@ body {
 <script>
 function addOrderToList(order,index){
 
-let orderHistory = document.getElementById("order-history");
 let li = document.createElement("li");
 
-let itemsText = "";
-
-if(order.items){
-itemsText = order.items.map(i => i.name + " €" + i.price).join(", ");
-}
-
 li.innerHTML = `
-<b>${order.time}</b> - €${order.total}<br>
-Ürünler: ${itemsText}<br>
+<b>${order.time}</b> - €${order.total}
+
 <button onclick="approveOrder(${index})">Siparişi Onayla</button>
+
+<button onclick="showDetails(${index})">Detaylar</button>
+
+<div id="details-${index}" style="display:none;margin-top:5px;">
+Sipariş No: ${order.id}<br>
+Masa No: ${order.table}<br>
+Ürünler: ${order.items.map(i => i.name + " €" + i.price).join(", ")}
+</div>
+
 <hr>
 `;
 
