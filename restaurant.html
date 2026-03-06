@@ -207,6 +207,18 @@ alert("Sipariş onaylandı");
 
 }
 
+function showDetails(index){
+
+let div = document.getElementById("details-"+index);
+
+if(div.style.display === "none"){
+div.style.display = "block";
+}else{
+div.style.display = "none";
+}
+
+}
+
 </script>
 
 </body>
