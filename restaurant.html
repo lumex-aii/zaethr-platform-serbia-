@@ -56,13 +56,12 @@ li.innerHTML = `
 <b>${order.time}</b> - €${order.total}
 
 <button onclick="approveOrder(${index})">Siparişi Onayla</button>
-
 <button onclick="showDetails(${index})">Detaylar</button>
 
 <div id="details-${index}" style="display:none;margin-top:5px;">
-Sipariş No: ${order.id}<br>
-Masa No: ${order.table}<br>
-Ürünler: ${order.items.map(i => i.name + " €" + i.price).join(", ")}
+Sipariş No: ${order.id || "-"}<br>
+Masa No: ${order.table || "-"}<br>
+Ürünler: ${order.items ? order.items.map(i => i.name + " €" + i.price).join(", ") : "-"}
 </div>
 
 <hr>
@@ -218,7 +217,6 @@ div.style.display = "none";
 }
 
 }
-
 </script>
 
 </body>
