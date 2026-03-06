@@ -127,7 +127,7 @@ function saveOrder() {
     savedOrders.push(order);
     localStorage.setItem("orders", JSON.stringify(savedOrders));
 
-    addOrderToList(order);
+    addOrderToList(order, savedOrders.length-1);
 
     alert("Sipariş kaydedildi!");
 
