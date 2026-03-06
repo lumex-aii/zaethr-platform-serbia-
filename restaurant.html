@@ -50,6 +50,7 @@ body {
 <script>
 function addOrderToList(order,index){
 
+let orderHistory = document.getElementById("order-history");
 let li = document.createElement("li");
 
 let itemsText = "";
@@ -68,7 +69,7 @@ li.innerHTML = `
 orderHistory.appendChild(li);
 
 }
-let orderHistory = document.getElementById("order-history");
+
 
 // Daha önceki siparişleri yükle
 let savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
