@@ -108,6 +108,26 @@ Total: €<span id="total">0</span>
 
 <script>
 
+function renderMenu(){
+
+let menu = JSON.parse(localStorage.getItem("menu")) || [];
+
+let container = document.getElementById("menu-items");
+
+container.innerHTML="";
+
+menu.forEach((item,index)=>{
+
+let btn = document.createElement("button");
+
+btn.innerText = item.name + " - €" + item.price;
+
+container.appendChild(btn);
+
+});
+
+}
+
 let products = [
 {name:"Burger",price:8},
 {name:"Pizza",price:10},
