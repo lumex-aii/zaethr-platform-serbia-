@@ -237,6 +237,20 @@ location.reload();
 
 }
 
+function calculateRevenue(){
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let total = 0;
+
+orders.forEach(o=>{
+total += o.total;
+});
+
+document.getElementById("daily-revenue").innerText = "€"+total;
+
+}
+
 function showDetails(index){
 
 let div = document.getElementById("details-"+index);
