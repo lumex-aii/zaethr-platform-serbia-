@@ -163,7 +163,12 @@ function resetDay() {
 function addProduct(){
 
 let name = document.getElementById("product-name").value;
-let price = document.getElementById("product-price").value;
+let price = Number(document.getElementById("product-price").value);
+
+if(!name || !price){
+alert("Ürün bilgisi eksik");
+return;
+}
 
 let menu = JSON.parse(localStorage.getItem("menu")) || [];
 
@@ -175,6 +180,9 @@ price:price
 localStorage.setItem("menu",JSON.stringify(menu));
 
 renderMenu();
+
+document.getElementById("product-name").value="";
+document.getElementById("product-price").value="";
 
 }
 
