@@ -59,20 +59,13 @@ li.innerHTML = `
 ${order.time} - €${order.total}
 
 <button onclick="approveOrder(${index})">Siparişi Onayla</button>
-
 <button onclick="toggleDetails(${index})">Detaylar</button>
 
-<div id="details-${index}" style="display:none; margin-top:10px">
+<div id="details-${index}" style="display:none;margin-top:10px">
 
-Sipariş No: ${order.id}
-
-<br>
-
-Masa No: ${order.table}
-
-<br>
-
-Ürünler: ${order.items.join(", ")}
+Sipariş No: ${order.id} <br>
+Masa No: ${order.table} <br>
+Ürünler: ${order.items.map(i => i.name + " €" + i.price).join(", ")}
 
 </div>
 
