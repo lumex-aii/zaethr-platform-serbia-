@@ -49,114 +49,10 @@ body {
 
 <script>
 
-let orderHistory = document.getElementById("order-history");
-
-function addOrderToList(order,index){
-
-let li = document.createElement("li");
-
-li.innerHTML = `
-${order.time} - €${order.total}
-
-<button onclick="approveOrder(${index})">Siparişi Onayla</button>
-<button onclick="toggleDetails(${index})">Detaylar</button>
-
-<div id="details-${index}" style="display:none;margin-top:10px">
-
-Sipariş No: ${order.id} <br>
-Masa No: ${order.table} <br>
-Ürünler: ${order.items.map(i => i.name + " €" + i.price).join(", ")}
-
-</div>
-
-<hr>
-`;
-
-orderHistory.appendChild(li);
-
-}
-
-// Daha önceki siparişleri yükle
-let savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
-savedOrders.forEach((order,index) => {
-addOrderToList(order,index);
-});
-let total = 0;
-let cart = [];
-
-let cartList = document.getElementById("cart-list");
-let totalDisplay = document.getElementById("total");
-let dailyRevenueDisplay = document.getElementById("dailyRevenue");
-
-// Günlük ciroyu başlat
-let dailyRevenue = localStorage.getItem("dailyRevenue");
-if (!dailyRevenue) {
-    dailyRevenue = 0;
-    localStorage.setItem("dailyRevenue", 0);
-}
-
-updateDailyRevenue();
-
-// Ürün ekleme
-function addItem(name, price) {
-    cart.push({name, price});
-    
-    let li = document.createElement("li");
-    li.textContent = name + " - €" + price;
-    cartList.appendChild(li);
-
-    total += price;
-    totalDisplay.textContent = total;
-}
-
-// Siparişi kaydet
-function saveOrder() {
-    if (cart.length === 0) {
-        alert("Sepet boş!");
-        return;
-    }
-
-    let revenue = parseFloat(localStorage.getItem("dailyRevenue"));
-    revenue += total;
-    localStorage.setItem("dailyRevenue", revenue);
-
-    updateDailyRevenue();
-
-    let order = {
-        time: new Date().toLocaleTimeString(),
-        total: total
-    };
-
-    savedOrders.push(order);
-    localStorage.setItem("orders", JSON.stringify(savedOrders));
-
-    addOrderToList(order, savedOrders.length-1);
-
-    alert("Sipariş kaydedildi!");
-
-    cart = [];
-    cartList.innerHTML = "";
-    total = 0;
-    totalDisplay.textContent = total;
-}
-
-// Günlük ciroyu göster
-function updateDailyRevenue() {
-    dailyRevenueDisplay.textContent = localStorage.getItem("dailyRevenue");
-}
-
-// Gün sonu sıfırlama
-function resetDay() {
-    localStorage.setItem("dailyRevenue", 0);
-    updateDailyRevenue();
-    alert("Günlük ciro sıfırlandı.");
-}
-    let products = JSON.parse(localStorage.getItem("products")) || [];
-
 function addProduct(){
 
 let name = document.getElementById("product-name").value;
-let price = Number(document.getElementById("product-price").value);
+let price = parseFloat(document.getElementById("product-price").value);
 
 if(!name || !price){
 alert("Ürün bilgisi eksik");
@@ -172,96 +68,106 @@ price:price
 
 localStorage.setItem("menu",JSON.stringify(menu));
 
-renderMenu();
-
 document.getElementById("product-name").value="";
 document.getElementById("product-price").value="";
 
-}
-
-function toggleDetails(index){
-
-let div = document.getElementById("details-"+index);
-
-if(div.style.display === "none"){
-
-div.style.display = "block";
-
-}else{
-
-div.style.display = "none";
+renderMenu();
 
 }
 
-}
+function renderMenu(){
 
-function renderProducts(){
+let menu = JSON.parse(localStorage.getItem("menu")) || [];
 
-let list = document.getElementById("productList")
-list.innerHTML=""
+let container = document.getElementById("menu-items");
 
-products.forEach((p,index)=>{
+container.innerHTML="";
 
-list.innerHTML += `
-<div>
-${p.name} - ${p.price}€
-<button onclick="deleteProduct(${index})">Sil</button>
-</div>
-`
+menu.forEach((item)=>{
 
-})
+let btn = document.createElement("button");
 
-}
+btn.innerText = item.name + " - €" + item.price;
 
-function deleteProduct(index){
+container.appendChild(btn);
 
-products.splice(index,1)
-
-localStorage.setItem("products", JSON.stringify(products))
-
-renderProducts()
-
-}
-
-renderProducts()
-
-function approveOrder(index){
-
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-orders.splice(index,1);
-
-localStorage.setItem("orders", JSON.stringify(orders));
-
-location.reload();
-
-}
-
-function calculateRevenue(){
-
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-let total = 0;
-
-orders.forEach(o=>{
-total += o.total;
 });
 
-document.getElementById("daily-revenue").innerText = "€"+total;
+}
+
+function renderOrders(){
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let container = document.getElementById("order-list");
+
+container.innerHTML="";
+
+let revenue = 0;
+
+orders.forEach((order,index)=>{
+
+revenue += order.total;
+
+let li = document.createElement("li");
+
+let itemsText = order.items.map(i=> i.name + " €" + i.price).join(", ");
+
+li.innerHTML = `
+
+${order.time} - €${order.total}
+
+<button onclick="approveOrder(${index})">Siparişi Onayla</button>
+
+<button onclick="toggleDetails(${index})">Detaylar</button>
+
+<div id="details-${index}" style="display:none;margin-top:10px">
+
+Sipariş No: ${order.id} <br>
+Masa No: ${order.table} <br>
+Ürünler: ${itemsText}
+
+</div>
+
+<hr>
+
+`;
+
+container.appendChild(li);
+
+});
+
+document.getElementById("daily-revenue").innerText = "€"+revenue;
 
 }
 
-function showDetails(index){
+function toggleDetails(i){
 
-let div = document.getElementById("details-"+index);
+let el = document.getElementById("details-"+i);
 
-if(div.style.display === "none"){
-div.style.display = "block";
+if(el.style.display=="none"){
+el.style.display="block";
 }else{
-div.style.display = "none";
+el.style.display="none";
 }
 
 }
+
+function approveOrder(i){
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+orders.splice(i,1);
+
+localStorage.setItem("orders",JSON.stringify(orders));
+
+renderOrders();
+
+}
+
+renderMenu();
+renderOrders();
+
 </script>
 
 </body>
