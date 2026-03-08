@@ -8,54 +8,28 @@
 <style>
 
 body{
-
-background:#121212;
+background:#111;
 color:white;
 font-family:Arial;
 text-align:center;
-padding:20px;
-
-}
-
-h1{
-font-size:38px;
-margin-bottom:20px;
+padding:30px;
 }
 
 .product{
-
-background:#1e1e1e;
+background:#1f1f1f;
 padding:15px;
 margin:10px;
 border-radius:10px;
 cursor:pointer;
-
-}
-
-.product:hover{
-background:#333;
-}
-
-.cart{
-
-margin-top:30px;
-
 }
 
 button{
-
-padding:12px 25px;
+padding:12px 20px;
 border:none;
-border-radius:10px;
+border-radius:8px;
 background:#3498db;
 color:white;
-cursor:pointer;
-margin-top:15px;
-
-}
-
-button:hover{
-background:#2980b9;
+margin-top:20px;
 }
 
 </style>
@@ -64,114 +38,112 @@ background:#2980b9;
 
 <body>
 
-<h1>ZAETHR Menu</h1>
-
-<h2>Ürünler</h2>
+<h1>ZAETHR MENU</h1>
 
 <div id="products"></div>
 
-<div class="cart">
-
 <h2>Sepet</h2>
 
-<ul id="cartList"></ul>
+<ul id="cart"></ul>
 
-<h3>Toplam: €<span id="total">0</span></h3>
+<h3>Toplam €<span id="total">0</span></h3>
+
+<input id="table" type="number" placeholder="Masa No">
 
 <button onclick="sendOrder()">Siparişi Gönder</button>
 
-</div>
-
 <script>
 
-let cart=[];
+let cart=[]
 
 function loadMenu(){
 
-let menu=JSON.parse(localStorage.getItem("menu"))||[];
+let menu=JSON.parse(localStorage.getItem("menu"))||[]
 
-let container=document.getElementById("products");
+let area=document.getElementById("products")
 
-container.innerHTML="";
+area.innerHTML=""
 
-menu.forEach(item=>{
+menu.forEach(p=>{
 
-let div=document.createElement("div");
+let d=document.createElement("div")
 
-div.className="product";
+d.className="product"
 
-div.innerText=item.name+" - €"+item.price;
+d.innerText=p.name+" - €"+p.price
 
-div.onclick=()=>{
+d.onclick=()=>{
 
-cart.push(item);
+cart.push(p)
 
-renderCart();
+renderCart()
 
-};
+}
 
-container.appendChild(div);
+area.appendChild(d)
 
-});
+})
 
 }
 
 function renderCart(){
 
-let list=document.getElementById("cartList");
+let ul=document.getElementById("cart")
 
-list.innerHTML="";
+ul.innerHTML=""
 
-let total=0;
+let total=0
 
 cart.forEach(i=>{
 
-let li=document.createElement("li");
+let li=document.createElement("li")
 
-li.innerText=i.name+" €"+i.price;
+li.innerText=i.name+" €"+i.price
 
-list.appendChild(li);
+ul.appendChild(li)
 
-total+=i.price;
+total+=i.price
 
-});
+})
 
-document.getElementById("total").innerText=total;
+document.getElementById("total").innerText=total
 
 }
 
 function sendOrder(){
 
-if(cart.length==0){
-alert("Sepet boş");
-return;
-}
+let table=document.getElementById("table").value
 
-let orders=JSON.parse(localStorage.getItem("orders"))||[];
+if(!table||cart.length==0)return
 
-let total=cart.reduce((t,i)=>t+i.price,0);
+let total=cart.reduce((t,i)=>t+i.price,0)
+
+let orders=JSON.parse(localStorage.getItem("orders"))||[]
 
 orders.push({
 
 id:Date.now(),
-table:Math.floor(Math.random()*20)+1,
-time:new Date().toLocaleTimeString(),
+table:table,
 items:cart,
-total:total
+total:total,
+time:new Date().toLocaleTimeString(),
+status:"Bekliyor",
+payment:"Bekleniyor",
+courier:"Yok"
 
-});
+})
 
-localStorage.setItem("orders",JSON.stringify(orders));
+localStorage.setItem("orders",JSON.stringify(orders))
 
-alert("Sipariş gönderildi");
+alert("Sipariş gönderildi")
 
-cart=[];
+cart=[]
 
-renderCart();
+renderCart()
 
 }
 
-loadMenu();
+loadMenu()
 
 </script>
 
