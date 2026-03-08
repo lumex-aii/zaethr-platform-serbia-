@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <title>ZAETHR Restaurant Panel</title>
 
@@ -15,52 +14,55 @@ padding:30px;
 }
 
 h1{
-font-size:42px;
+font-size:36px;
 margin-bottom:30px;
 }
 
-input{
+input,select{
 padding:10px;
-margin:5px;
 border-radius:8px;
 border:none;
+margin:5px;
 }
 
 button{
-
-padding:10px 18px;
+padding:10px 14px;
 border:none;
-border-radius:10px;
-background:#2ecc71;
+border-radius:8px;
+background:#27ae60;
 color:white;
 cursor:pointer;
-margin:5px;
-
+margin:3px;
 }
 
 button:hover{
-background:#27ae60;
+background:#2ecc71;
 }
 
 .product{
-display:inline-block;
 background:#1e1e1e;
-padding:10px 15px;
+padding:10px;
+border-radius:8px;
+display:inline-block;
 margin:5px;
-border-radius:10px;
 }
 
 .order{
-
 background:#1c1c1c;
 padding:15px;
-margin-top:15px;
 border-radius:10px;
+margin-top:15px;
+}
 
+.details{
+background:#141414;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+display:none;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -69,118 +71,238 @@ border-radius:10px;
 
 <h2>Ürün Ekle</h2>
 
-<input id="productName" placeholder="Ürün adı">
-<input id="productPrice" placeholder="Fiyat">
+<input id="pname" placeholder="Ürün adı">
+<input id="pprice" type="number" placeholder="Fiyat">
 <button onclick="addProduct()">Ürün Ekle</button>
 
 <h2>Ürünler</h2>
+<div id="menu"></div>
 
-<div id="menuList"></div>
+<h2>Manuel Sipariş Oluştur</h2>
+
+<input id="table" type="number" placeholder="Masa No">
+
+<select id="productSelect"></select>
+
+<button onclick="addItemToOrder()">Ürün Ekle</button>
+
+<ul id="tempCart"></ul>
+
+<button onclick="createManualOrder()">Siparişi Gönder</button>
 
 <h2>Bugünkü Siparişler</h2>
 
 <div id="orders"></div>
 
-<h2>Günlük Ciro: €<span id="revenue">0</span></h2>
-
-<button onclick="resetDay()">Gün Sonu Sıfırla</button>
-
 <script>
+
+let tempCart=[]
 
 function addProduct(){
 
-let name=document.getElementById("productName").value;
-let price=parseFloat(document.getElementById("productPrice").value);
+let name=document.getElementById("pname").value
+let price=Number(document.getElementById("pprice").value)
 
-if(!name || !price){
-alert("Bilgi eksik");
-return;
-}
+if(!name || !price)return
 
-let menu=JSON.parse(localStorage.getItem("menu"))||[];
+let menu=JSON.parse(localStorage.getItem("menu"))||[]
 
-menu.push({name:name,price:price});
+menu.push({name,price})
 
-localStorage.setItem("menu",JSON.stringify(menu));
+localStorage.setItem("menu",JSON.stringify(menu))
 
-document.getElementById("productName").value="";
-document.getElementById("productPrice").value="";
+document.getElementById("pname").value=""
+document.getElementById("pprice").value=""
 
-renderMenu();
+renderMenu()
 
 }
 
 function renderMenu(){
 
-let menu=JSON.parse(localStorage.getItem("menu"))||[];
+let menu=JSON.parse(localStorage.getItem("menu"))||[]
 
-let area=document.getElementById("menuList");
+let area=document.getElementById("menu")
+let select=document.getElementById("productSelect")
 
-area.innerHTML="";
+area.innerHTML=""
+select.innerHTML=""
 
-menu.forEach(item=>{
+menu.forEach(p=>{
 
-let div=document.createElement("div");
+let d=document.createElement("div")
+d.className="product"
+d.innerText=p.name+" - €"+p.price
+area.appendChild(d)
 
-div.className="product";
+let op=document.createElement("option")
+op.value=p.name
+op.innerText=p.name+" €"+p.price
+select.appendChild(op)
 
-div.innerText=item.name+" - €"+item.price;
+})
 
-area.appendChild(div);
+}
 
-});
+function addItemToOrder(){
+
+let menu=JSON.parse(localStorage.getItem("menu"))||[]
+let pname=document.getElementById("productSelect").value
+
+let item=menu.find(x=>x.name==pname)
+
+tempCart.push(item)
+
+renderTempCart()
+
+}
+
+function renderTempCart(){
+
+let ul=document.getElementById("tempCart")
+ul.innerHTML=""
+
+tempCart.forEach(i=>{
+let li=document.createElement("li")
+li.innerText=i.name+" €"+i.price
+ul.appendChild(li)
+})
+
+}
+
+function createManualOrder(){
+
+let table=document.getElementById("table").value
+
+if(!table || tempCart.length==0)return
+
+let total=tempCart.reduce((t,i)=>t+i.price,0)
+
+let orders=JSON.parse(localStorage.getItem("orders"))||[]
+
+orders.push({
+
+id:Date.now(),
+table:table,
+items:tempCart,
+total:total,
+time:new Date().toLocaleTimeString(),
+status:"Bekliyor",
+payment:"Bekleniyor",
+courier:"Yok"
+
+})
+
+localStorage.setItem("orders",JSON.stringify(orders))
+
+tempCart=[]
+renderTempCart()
+renderOrders()
 
 }
 
 function renderOrders(){
 
-let orders=JSON.parse(localStorage.getItem("orders"))||[];
+let orders=JSON.parse(localStorage.getItem("orders"))||[]
 
-let container=document.getElementById("orders");
+let container=document.getElementById("orders")
 
-container.innerHTML="";
+container.innerHTML=""
 
-let totalRevenue=0;
+orders.forEach((o,i)=>{
 
-orders.forEach(order=>{
+let items=o.items.map(x=>x.name+" €"+x.price).join(", ")
 
-totalRevenue+=order.total;
-
-let itemsText=order.items.map(i=>i.name+" €"+i.price).join(", ");
-
-let div=document.createElement("div");
-
-div.className="order";
+let div=document.createElement("div")
+div.className="order"
 
 div.innerHTML=`
 
-Saat: ${order.time} <br>
-Masa: ${order.table} <br>
-Ürünler: ${itemsText} <br>
-Toplam: €${order.total}
+<b>Sipariş No:</b> ${o.id}<br>
+<b>Masa:</b> ${o.table}<br>
+<b>Toplam:</b> €${o.total}<br>
 
-`;
+<button onclick="toggleDetails(${i})">Detaylar</button>
+<button onclick="approve(${i})">Onayla</button>
+<button onclick="cancel(${i})">İptal</button>
+<button onclick="pay(${i})">Ödeme Al</button>
+<button onclick="assignCourier(${i})">Kurye Ata</button>
 
-container.appendChild(div);
+<div class="details" id="d${i}">
 
-});
+Ürünler: ${items}<br>
+Saat: ${o.time}<br>
+Durum: ${o.status}<br>
+Ödeme: ${o.payment}<br>
+Kurye: ${o.courier}<br>
 
-document.getElementById("revenue").innerText=totalRevenue;
+</div>
+
+`
+
+container.appendChild(div)
+
+})
 
 }
 
-function resetDay(){
+function toggleDetails(i){
 
-localStorage.removeItem("orders");
+let el=document.getElementById("d"+i)
 
-renderOrders();
+if(el.style.display=="none"||el.style.display==""){
+el.style.display="block"
+}else{
+el.style.display="none"
+}
 
 }
 
-renderMenu();
-renderOrders();
+function approve(i){
 
-setInterval(renderOrders,2000);
+let orders=JSON.parse(localStorage.getItem("orders"))
+orders[i].status="Hazırlanıyor"
+localStorage.setItem("orders",JSON.stringify(orders))
+renderOrders()
+
+}
+
+function cancel(i){
+
+let orders=JSON.parse(localStorage.getItem("orders"))
+orders.splice(i,1)
+localStorage.setItem("orders",JSON.stringify(orders))
+renderOrders()
+
+}
+
+function pay(i){
+
+let orders=JSON.parse(localStorage.getItem("orders"))
+orders[i].payment="Ödendi"
+localStorage.setItem("orders",JSON.stringify(orders))
+renderOrders()
+
+}
+
+function assignCourier(i){
+
+let name=prompt("Kurye adı")
+
+let orders=JSON.parse(localStorage.getItem("orders"))
+
+orders[i].courier=name
+
+localStorage.setItem("orders",JSON.stringify(orders))
+
+renderOrders()
+
+}
+
+renderMenu()
+renderOrders()
+
+setInterval(renderOrders,2000)
 
 </script>
 
