@@ -1,80 +1,110 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZAETHR Restaurant Panel</title>
+
 <style>
-body {
-    background-color: #000;
-    color: #fff;
+
+body{
+background:#0f0f0f;
+color:white;
+font-family:Arial;
+padding:30px;
 }
+
+h1{
+font-size:42px;
+margin-bottom:30px;
+}
+
+input{
+padding:10px;
+margin:5px;
+border-radius:8px;
+border:none;
+}
+
+button{
+
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:#2ecc71;
+color:white;
+cursor:pointer;
+margin:5px;
+
+}
+
+button:hover{
+background:#27ae60;
+}
+
+.product{
+display:inline-block;
+background:#1e1e1e;
+padding:10px 15px;
+margin:5px;
+border-radius:10px;
+}
+
+.order{
+
+background:#1c1c1c;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+
+}
+
 </style>
-<link rel="stylesheet" href="stil.css">
+
 </head>
 
 <body>
 
-<h1 style="text-align:center;">ZAETHR Restaurant Panel</h1>
-    <h3>Ürün Ekle</h3>
+<h1>ZAETHR Restaurant Panel</h1>
+
+<h2>Ürün Ekle</h2>
 
 <input id="productName" placeholder="Ürün adı">
 <input id="productPrice" placeholder="Fiyat">
-
 <button onclick="addProduct()">Ürün Ekle</button>
 
-<div id="daily-revenue"></div>
+<h2>Ürünler</h2>
 
-<div id="productList"></div>
+<div id="menuList"></div>
 
-<div id="menu-items"></div>
+<h2>Bugünkü Siparişler</h2>
 
-<div class="container">
+<div id="orders"></div>
 
-    <div class="products">
-        <h2>Ürünler</h2>
-        <button onclick="addItem('Burger', 8)">Burger - €8</button>
-        <button onclick="addItem('Pizza', 10)">Pizza - €10</button>
-        <button onclick="addItem('Kola', 3)">Kola - €3</button>
-    </div>
+<h2>Günlük Ciro: €<span id="revenue">0</span></h2>
 
-    <div class="cart">
-        <h2>Sepet</h2>
-        <h2>Bugünkü Siparişler</h2>
-        <ul id="order-list"></ul>
-        <ul id="order-history"></ul>
-        <ul id="cart-list"></ul>
-        <h3>Toplam: €<span id="total">0</span></h3>
-        <h3>Günlük Ciro: €<span id="dailyRevenue"></span></h3>
-        <button onclick="resetDay()">Gün Sonu Sıfırla</button>
-        <button onclick="saveOrder()">Siparişi Kaydet</button>
-    </div>
-
-</div>
+<button onclick="resetDay()">Gün Sonu Sıfırla</button>
 
 <script>
 
 function addProduct(){
 
-let name = document.getElementById("product-name").value;
-let price = parseFloat(document.getElementById("product-price").value);
+let name=document.getElementById("productName").value;
+let price=parseFloat(document.getElementById("productPrice").value);
 
 if(!name || !price){
-alert("Ürün bilgisi eksik");
+alert("Bilgi eksik");
 return;
 }
 
-let menu = JSON.parse(localStorage.getItem("menu")) || [];
+let menu=JSON.parse(localStorage.getItem("menu"))||[];
 
-menu.push({
-name:name,
-price:price
-});
+menu.push({name:name,price:price});
 
 localStorage.setItem("menu",JSON.stringify(menu));
 
-document.getElementById("product-name").value="";
-document.getElementById("product-price").value="";
+document.getElementById("productName").value="";
+document.getElementById("productPrice").value="";
 
 renderMenu();
 
@@ -82,19 +112,21 @@ renderMenu();
 
 function renderMenu(){
 
-let menu = JSON.parse(localStorage.getItem("menu")) || [];
+let menu=JSON.parse(localStorage.getItem("menu"))||[];
 
-let container = document.getElementById("menu-items");
+let area=document.getElementById("menuList");
 
-container.innerHTML="";
+area.innerHTML="";
 
-menu.forEach((item)=>{
+menu.forEach(item=>{
 
-let btn = document.createElement("button");
+let div=document.createElement("div");
 
-btn.innerText = item.name + " - €" + item.price;
+div.className="product";
 
-container.appendChild(btn);
+div.innerText=item.name+" - €"+item.price;
+
+area.appendChild(div);
 
 });
 
@@ -102,69 +134,44 @@ container.appendChild(btn);
 
 function renderOrders(){
 
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
+let orders=JSON.parse(localStorage.getItem("orders"))||[];
 
-let container = document.getElementById("order-list");
+let container=document.getElementById("orders");
 
 container.innerHTML="";
 
-let revenue = 0;
+let totalRevenue=0;
 
-orders.forEach((order,index)=>{
+orders.forEach(order=>{
 
-revenue += order.total;
+totalRevenue+=order.total;
 
-let li = document.createElement("li");
+let itemsText=order.items.map(i=>i.name+" €"+i.price).join(", ");
 
-let itemsText = order.items.map(i=> i.name + " €" + i.price).join(", ");
+let div=document.createElement("div");
 
-li.innerHTML = `
+div.className="order";
 
-${order.time} - €${order.total}
+div.innerHTML=`
 
-<button onclick="approveOrder(${index})">Siparişi Onayla</button>
-
-<button onclick="toggleDetails(${index})">Detaylar</button>
-
-<div id="details-${index}" style="display:none;margin-top:10px">
-
-Sipariş No: ${order.id} <br>
-Masa No: ${order.table} <br>
-Ürünler: ${itemsText}
-
-</div>
-
-<hr>
+Saat: ${order.time} <br>
+Masa: ${order.table} <br>
+Ürünler: ${itemsText} <br>
+Toplam: €${order.total}
 
 `;
 
-container.appendChild(li);
+container.appendChild(div);
 
 });
 
-document.getElementById("daily-revenue").innerText = "€"+revenue;
+document.getElementById("revenue").innerText=totalRevenue;
 
 }
 
-function toggleDetails(i){
+function resetDay(){
 
-let el = document.getElementById("details-"+i);
-
-if(el.style.display=="none"){
-el.style.display="block";
-}else{
-el.style.display="none";
-}
-
-}
-
-function approveOrder(i){
-
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-orders.splice(i,1);
-
-localStorage.setItem("orders",JSON.stringify(orders));
+localStorage.removeItem("orders");
 
 renderOrders();
 
@@ -172,6 +179,8 @@ renderOrders();
 
 renderMenu();
 renderOrders();
+
+setInterval(renderOrders,2000);
 
 </script>
 
